@@ -6,9 +6,8 @@
     { "src": "package.json", "use": "@vercel/static-build" }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "https://qaran.onrender.com/api/$1" },
+    { "src": "/api/(.*)", "dest": "https://qaran.onrender.com/$1" },
     { "src": "/static/(.*)", "dest": "/static/$1" },
-    { "src": "/favicon.ico", "dest": "/favicon.ico" },
     { "src": "/manifest.json", "dest": "/manifest.json" },
     { "src": "/(.*)", "dest": "/index.html" }
   ],
@@ -18,7 +17,15 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://baby-shop-mcqv.vercel.app"
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-Requested-With, Content-Type, Accept, Authorization"
         }
       ]
     }
