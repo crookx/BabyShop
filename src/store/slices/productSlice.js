@@ -1,6 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const api = axios.create({
+  baseURL: 'http://localhost:8080/api/products'
+});
+
 const initialState = {
   items: [],
   featured: [],
@@ -17,61 +21,50 @@ const initialState = {
 
 export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
-  async (params) => {
+  async (params, { rejectWithValue }) => {
     try {
-      // Convert category name to slug format
-      const categorySlug = params.category?.toLowerCase().replace(/\s+/g, '-');
-      
-      const response = await axios.get('/api/products', { 
-        params: {
-          page: params.page || 1,
-          category: categorySlug || '',
-          priceRange: params.priceRange || '0-1000',
-          ageGroup: params.ageGroup || ''
-        }
-      });
-      
-      console.log('API Response:', response.data);
-      return Array.isArray(response.data) ? response.data : [];
+      const response = await api.get('/products', { params });
+      return response.data;
     } catch (error) {
-      console.error('Error fetching products:', error);
-      throw error.response?.data?.message || 'Failed to fetch products';
+      return rejectWithValue(error.message);
     }
   }
 );
 
 export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
-  async () => {
+  async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get('/api/products/categories');
-      return response.data?.data || [];
+      const response = await api.get('/categories');
+      return response.data;
     } catch (error) {
-      throw error.response?.data?.message || 'Failed to fetch categories';
+      return rejectWithValue(error.message);
     }
   }
 );
 
-export const fetchFeaturedProducts = createAsyncThunk(
+export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
-  async () => {
+  async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get('/api/products/featured');
-      return Array.isArray(response.data) ? response.data : response.data?.data || [];
+      const response = await api.get('/featured');
+      return response.data;
     } catch (error) {
-      throw error.response?.data?.message || 'Failed to fetch featured products';
+      return rejectWithValue(error.message);
     }
   }
 );
 
 export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
-  async () => {
+  async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get('/api/products/offers');
-      return response.data?.data?.offers || [];
+      const response = await api.get('/offers');
+      console.log('Special Offers API Response:', response.data);
+      return response.data;
     } catch (error) {
-      throw error.response?.data?.message || 'Failed to fetch special offers';
+      console.error('Special Offers Error:', error);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -99,17 +92,49 @@ const productSlice = createSlice({
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message;
+        state.error = action.payload;
         state.items = [];
       })
-      .addCase(fetchCategories.fulfilled, (state, action) => {
-        state.categories = action.payload;
+      // Categories
+      .addCase(fetchCategories.pending, (state) => {
+        state.loading = true;
+        state.error = null;
       })
-      .addCase(fetchFeaturedProducts.fulfilled, (state, action) => {
-        state.featured = action.payload;
+      .addCase(fetchCategories.fulfilled, (state, action) => {
+        state.loading = false;
+        state.categories = action.payload.data;
+        state.error = null;
+      })
+      .addCase(fetchCategories.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      // Featured Products
+      .addCase(fetchFeatured.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchFeatured.fulfilled, (state, action) => {
+        state.loading = false;
+        state.featured = action.payload.data;
+      })
+      .addCase(fetchFeatured.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      // Special Offers
+      .addCase(fetchSpecialOffers.pending, (state) => {
+        state.loading = true;
+        state.error = null;
       })
       .addCase(fetchSpecialOffers.fulfilled, (state, action) => {
-        state.specialOffers = action.payload;
+        state.loading = false;
+        state.specialOffers = action.payload.data || [];
+        state.error = null;
+      })
+      .addCase(fetchSpecialOffers.rejected, (state, action) => {
+        state.loading = false;
+        state.specialOffers = [];
+        state.error = action.payload;
       });
   }
 });

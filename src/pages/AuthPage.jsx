@@ -16,8 +16,8 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { Visibility, VisibilityOff, Email, Person, Lock } from '@mui/icons-material';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { API_BASE_URL } from '../config/api';
-import axios from 'axios';
+import { API_CONFIG, API_ENDPOINTS } from '../config/api';
+import axios from '../config/axios';
 import { useDispatch } from 'react-redux';
 import { login } from '../store/slices/authSlice';
 import { showNotification } from '../store/slices/notificationSlice';
@@ -44,17 +44,27 @@ const AuthPage = () => {
     setError('');
 
     try {
-      const endpoint = authMode === 'login' ? 'auth/login' : 'auth/register';
-      const response = await axios.post(`${API_BASE_URL}/${endpoint}`, formData);
+      const endpoint = authMode === 'login' ? API_ENDPOINTS.AUTH.LOGIN : API_ENDPOINTS.AUTH.REGISTER;
+      const response = await axios.post(endpoint, formData);
       
       if (response.data.token) {
         setAuthData(response.data);
         dispatch(login(response.data));
+        
         dispatch(showNotification({
           message: `Successfully ${authMode === 'login' ? 'logged in' : 'registered'}!`,
           type: 'success'
         }));
-        navigate(location.state?.from || '/', { replace: true });
+
+        const returnPath = location.state?.from || '/';
+        if (location.state?.action) {
+          dispatch(showNotification({
+            message: `You can now add items to ${location.state.action}`,
+            type: 'info'
+          }));
+        }
+        
+        navigate(returnPath, { replace: true });
       }
     } catch (err) {
       const errorMessage = err.response?.data?.message || 'Authentication failed';

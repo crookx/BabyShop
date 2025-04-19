@@ -1,10 +1,10 @@
 import axios from 'axios';
+import { envConfig } from '../config/env.config';
 
 const api = axios.create({
-  baseURL: 'https://qaran.onrender.com',
+  baseURL: 'http://localhost:8080/api',
   headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
+    'Content-Type': 'application/json'
   },
   withCredentials: true
 });
@@ -20,21 +20,10 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      localStorage.removeItem('token');
-      window.location.href = '/auth';
-    }
-    return Promise.reject(error);
-  }
-);
-
 export const productApi = {
-  getFeatured: () => api.get('/api/products/featured'),
-  getCategories: () => api.get('/api/products/categories'),
-  getSpecialOffers: () => api.get('/api/products/offers')
+  getFeatured: () => api.get('/products/featured'),
+  getCategories: () => api.get('/products/categories'),
+  getSpecialOffers: () => api.get('/products/offers')
 };
 
 export default api;

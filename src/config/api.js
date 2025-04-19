@@ -1,15 +1,27 @@
-export const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://qaran.onrender.com';
+var ENV = process.env.NODE_ENV || 'development';
+
+const config = {
+  development: {
+    API_URL: 'http://localhost:8080',
+    SITE_URL: 'http://localhost:3000'
+  },
+  production: {
+    API_URL: 'https://qaran.onrender.com',
+    SITE_URL: 'https://qaranbaby.com'
+  }
+};
+
+export const API_CONFIG = config[ENV];
 
 export const API_ENDPOINTS = {
   AUTH: {
-    LOGIN: `${API_BASE_URL}/api/auth/login`,
-    REGISTER: `${API_BASE_URL}/api/auth/register`,
-    LOGOUT: `${API_BASE_URL}/api/auth/logout`,
-    PROFILE: `${API_BASE_URL}/api/auth/profile`
+    LOGIN: '/api/auth/login',
+    REGISTER: '/api/auth/register',
+    LOGOUT: '/api/auth/logout'
   },
-  PRODUCTS: `${API_BASE_URL}/api/products`,
-  WISHLIST: `${API_BASE_URL}/api/wishlist`,
-  CART: `${API_BASE_URL}/api/cart`
+  CART: '/api/cart',
+  WISHLIST: '/api/wishlist',
+  PRODUCTS: '/api/products'
 };
 
 export const getAuthHeader = () => ({

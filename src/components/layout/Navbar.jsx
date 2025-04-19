@@ -17,7 +17,7 @@ import { fetchWishlist } from '../../store/slices/wishlistSlice';
 const StyledAppBar = styled(AppBar)`
   background: rgba(255, 245, 247, 0.95);
   backdrop-filter: blur(10px);
-   box-shadow: ${props => props.elevated ? '0 4px 30px rgba(0, 0, 0, 0.1)' : 'none'};
+  box-shadow: ${props => props.sx?.elevation === 0 ? 'none' : '0 4px 30px rgba(0, 0, 0, 0.1)'};
   transition: all 0.3s ease;
   position: fixed;
   top: 0;
@@ -132,7 +132,15 @@ const Navbar = ({ onCartClick }) => {
 
   return (
     <>
-      <StyledAppBar position="fixed" elevated={isScrolled}>
+      <AppBar 
+        position="fixed"
+        elevation={0}
+        sx={{
+          bgcolor: 'background.default',
+          borderBottom: '1px solid',
+          borderColor: 'divider'
+        }}
+      >
         <Container maxWidth="xl">
           <Toolbar sx={{ 
             justifyContent: 'space-between', 
@@ -261,7 +269,7 @@ const Navbar = ({ onCartClick }) => {
             </IconContainer>
           </Toolbar>
         </Container>
-      </StyledAppBar>
+      </AppBar>
       <MobileDrawer open={mobileOpen} onClose={() => setMobileOpen(false)} />
       <SearchDrawer open={searchOpen} onClose={() => setSearchOpen(false)} />
     </>

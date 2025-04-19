@@ -96,7 +96,7 @@ const MobileDrawer = ({ open, onClose }) => {
               transition={{ delay: index * 0.1 }}
             >
               <ListItem
-                button
+                component="div"
                 onClick={() => handleNavigation(item.path)}
                 sx={{
                   mb: 1,

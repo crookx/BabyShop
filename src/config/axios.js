@@ -1,10 +1,13 @@
 import axios from 'axios';
+import { API_CONFIG } from './api';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: API_CONFIG.API_URL,
   headers: {
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  withCredentials: true
 });
 
 instance.interceptors.request.use(
@@ -16,6 +19,17 @@ instance.interceptors.request.use(
     return config;
   },
   (error) => Promise.reject(error)
+);
+
+instance.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem('token');
+      window.location.href = '/auth';
+    }
+    return Promise.reject(error);
+  }
 );
 
 export default instance;

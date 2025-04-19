@@ -1,9 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { envConfig } from '../../config/env.config';
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: envConfig.API_URL
+  baseURL: 'http://localhost:8080/api/products'
 });
 
 const initialState = {
@@ -18,12 +17,10 @@ export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products/categories');
-      console.log('Categories response:', response.data);
-      return response.data.data || [];
+      const response = await api.get('/categories');
+      return response.data;
     } catch (error) {
-      console.error('Categories error:', error);
-      return rejectWithValue(error.response?.data || 'Failed to fetch categories');
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -32,12 +29,10 @@ export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products/featured');
-      console.log('Featured response:', response.data);
-      return response.data.data || [];
+      const response = await api.get('/featured');
+      return response.data;
     } catch (error) {
-      console.error('Featured error:', error);
-      return rejectWithValue(error.response?.data || 'Failed to fetch featured products');
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -46,12 +41,12 @@ export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products/offers');
-      console.log('Offers response:', response.data);
-      return response.data.data || [];
+      const response = await api.get('/offers');
+      console.log('Special Offers Response:', response.data);
+      return response.data;
     } catch (error) {
-      console.error('Offers error:', error);
-      return rejectWithValue(error.response?.data || 'Failed to fetch special offers');
+      console.error('Special Offers Error:', error);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -67,21 +62,29 @@ const productSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchCategories.fulfilled, (state, action) => {
+        state.categories = action.payload.data;
         state.loading = false;
-        state.categories = action.payload;
-        state.error = null;
+      })
+      .addCase(fetchFeatured.fulfilled, (state, action) => {
+        state.featured = action.payload.data;
+      })
+      .addCase(fetchSpecialOffers.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchSpecialOffers.fulfilled, (state, action) => {
+        console.log('Special Offers Reducer:', action.payload);
+        state.specialOffers = action.payload.data || [];
+        state.loading = false;
+      })
+      .addCase(fetchSpecialOffers.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
       })
       .addCase(fetchCategories.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-      })
-      .addCase(fetchFeatured.fulfilled, (state, action) => {
-        state.featured = action.payload;
-      })
-      .addCase(fetchSpecialOffers.fulfilled, (state, action) => {
-        state.specialOffers = action.payload;
       });
-  },
+  }
 });
 
 export default productSlice.reducer;

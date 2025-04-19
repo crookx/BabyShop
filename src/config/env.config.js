@@ -1,11 +1,22 @@
-const production = {
-  API_URL: 'https://qaran.onrender.com',
-  SITE_URL: 'https://qaranbaby.com'
+const config = {
+  development: {
+    API_URL: 'http://localhost:8080/api',
+    SITE_URL: 'http://localhost:3000'
+  },
+  production: {
+    API_URL: process.env.REACT_APP_API_URL || 'https://qaran.onrender.com/api',
+    SITE_URL: process.env.REACT_APP_SITE_URL || 'https://qaran.vercel.app'
+  }
 };
 
-const development = {
-  API_URL: 'http://localhost:8080/api',
-  SITE_URL: 'http://localhost:3000'
+const env = process.env.NODE_ENV || 'development';
+
+export const envConfig = {
+  ...config[env],
+  ENV: env,
+  IS_DEV: env === 'development',
+  IS_PROD: env === 'production',
+  IMAGE_URL: process.env.REACT_APP_IMAGE_URL || config[env].API_URL + '/images'
 };
 
-export const envConfig = process.env.NODE_ENV === 'production' ? production : development;
+Object.freeze(envConfig);

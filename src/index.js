@@ -11,7 +11,7 @@ import theme from './theme.js';
 import App from './App.jsx';
 
 // Add axios defaults for API calls
-axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

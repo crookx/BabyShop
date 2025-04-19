@@ -14,30 +14,62 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const { token } = getAuthData();
-  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-  const { items: wishlistItems } = useSelector(state => state.wishlist);
-  const isInWishlist = wishlistItems.some(item => item._id === product._id);
+  const { token } = useSelector(state => state.auth);
+  const wishlist = useSelector(state => state.wishlist.items);
+  const isInWishlist = wishlist.some(item => item._id === product._id);
   const [isHovered, setIsHovered] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const handleWishlistClick = async (e) => {
+  const handleAuthAction = (action) => {
+    dispatch(showNotification({
+      message: `Please login to ${action === 'cart' ? 'add items to cart' : 'manage wishlist'}`,
+      type: 'info'
+    }));
+    navigate('/auth', { 
+      state: { 
+        from: location.pathname,
+        action
+      }
+    });
+  };
+
+  const handleAddToCart = async (e) => {
     e.preventDefault();
     e.stopPropagation();
     
-    if (!token || !isAuthenticated) {
-      dispatch(showNotification({
-        message: 'Please login to add items to wishlist',
-        type: 'info'
-      }));
-      navigate(ROUTES.AUTH, { 
-        state: { from: location.pathname }
-      });
+    if (!token) {
+      handleAuthAction('cart');
       return;
     }
 
     try {
-      setIsProcessing(true);
+      await dispatch(addToCart({ productId: product._id, quantity: 1 })).unwrap();
+      dispatch(showNotification({
+        message: 'Product added to cart successfully',
+        type: 'success'
+      }));
+    } catch (error) {
+      if (error.status === 401) {
+        handleAuthAction('cart');
+      } else {
+        dispatch(showNotification({
+          message: error.message || 'Failed to add item to cart',
+          type: 'error'
+        }));
+      }
+    }
+  };
+
+  const handleWishlistToggle = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (!token) {
+      handleAuthAction('wishlist');
+      return;
+    }
+
+    try {
       if (isInWishlist) {
         await dispatch(removeFromWishlist(product._id)).unwrap();
         dispatch(showNotification({
@@ -52,18 +84,15 @@ const ProductCard = ({ product }) => {
         }));
       }
     } catch (error) {
-      dispatch(showNotification({
-        message: error.message || 'Failed to update wishlist',
-        type: 'error'
-      }));
-    } finally {
-      setIsProcessing(false);
+      if (error.status === 401) {
+        handleAuthAction('wishlist');
+      } else {
+        dispatch(showNotification({
+          message: error.message || 'Failed to update wishlist',
+          type: 'error'
+        }));
+      }
     }
-  };
-
-  const handleAddToCart = (e) => {
-    e.stopPropagation();
-    dispatch(addToCart({ productId: product._id, quantity: 1 }));
   };
 
   const handleClick = () => {
@@ -119,7 +148,7 @@ const ProductCard = ({ product }) => {
             <Tooltip title={isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}>
               <IconButton
                 size="small"
-                onClick={handleWishlistClick}
+                onClick={handleWishlistToggle}
                 disabled={isProcessing}
                 sx={{ 
                   color: isInWishlist ? 'error.main' : 'action.active',
