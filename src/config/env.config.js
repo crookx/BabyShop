@@ -4,8 +4,8 @@ const config = {
     SITE_URL: 'http://localhost:3000'
   },
   production: {
-    API_URL: process.env.REACT_APP_API_URL || 'https://qaran.onrender.com/api',
-    SITE_URL: process.env.REACT_APP_SITE_URL || 'https://qaran.vercel.app'
+    API_URL: 'https://qaran.onrender.com/api',
+    SITE_URL: 'https://baby-shop-mcqv-h1tp7d2j0-crookxs-projects.vercel.app'
   }
 };
 
