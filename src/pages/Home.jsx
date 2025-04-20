@@ -9,26 +9,29 @@ import { fetchCategories, fetchFeatured, fetchSpecialOffers } from '../store/sli
 
 const Home = () => {
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(true); // Local loading state
   const [error, setError] = useState(null);
-  const { featured, categories, specialOffers, loading } = useSelector(state => ({
+  
+  const { featured, categories, specialOffers } = useSelector(state => ({
     featured: state.products.featured || [],
     categories: state.products.categories || [],
-    specialOffers: state.products.specialOffers || [],
-    loading: state.products.loading
+    specialOffers: state.products.specialOffers || []
   }));
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const results = await Promise.all([
+        setIsLoading(true);
+        await Promise.all([
           dispatch(fetchCategories()).unwrap(),
           dispatch(fetchFeatured()).unwrap(),
           dispatch(fetchSpecialOffers()).unwrap()
         ]);
-        console.log('API Responses:', results);
       } catch (error) {
         console.error('Error loading data:', error);
         setError(error.message);
+      } finally {
+        setIsLoading(false);
       }
     };
     loadData();
@@ -42,7 +45,7 @@ const Home = () => {
     );
   }
 
-  if (loading) {
+  if (isLoading) { // Use local loading state instead
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh' }}>
         <CircularProgress />
