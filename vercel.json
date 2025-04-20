@@ -17,7 +17,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "*"
+          "value": "https://baby-shop-mcqv.vercel.app"
         },
         {
           "key": "Access-Control-Allow-Methods",
@@ -25,7 +25,7 @@
         },
         {
           "key": "Access-Control-Allow-Headers",
-          "value": "X-Requested-With, Content-Type, Accept, Authorization, access-control-allow-origin"
+          "value": "X-Requested-With, Content-Type, Accept, Authorization"
         },
         {
           "key": "Access-Control-Allow-Credentials",
