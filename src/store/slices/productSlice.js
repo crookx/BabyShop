@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://qaran.onrender.com/api/products'
+  baseURL: 'https://qaran.onrender.com/api'  // Base URL already has /api
 });
 
 const initialState = {
@@ -35,7 +35,7 @@ export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/categories');
+      const response = await api.get('/products/categories'); // Remove /api from here
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -47,7 +47,7 @@ export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/featured');
+      const response = await api.get('/products/featured'); // Remove /api from here
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -59,7 +59,7 @@ export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/offers');
+      const response = await api.get('/products/offers'); // Remove /api from here
       console.log('Special Offers API Response:', response.data);
       return response.data;
     } catch (error) {
