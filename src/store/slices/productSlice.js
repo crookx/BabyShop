@@ -1,8 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { API_CONFIG } from '../../config/api';
 
+// Update the api configuration to use the dynamic API_URL
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api/products'
+  baseURL: API_CONFIG.API_URL
 });
 
 const initialState = {
@@ -35,7 +37,7 @@ export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/categories');
+      const response = await api.get('/api/products/categories');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -47,7 +49,7 @@ export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/featured');
+      const response = await api.get('/api/products/featured');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -59,11 +61,9 @@ export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/offers');
-      console.log('Special Offers API Response:', response.data);
+      const response = await api.get('/api/products/offers');
       return response.data;
     } catch (error) {
-      console.error('Special Offers Error:', error);
       return rejectWithValue(error.message);
     }
   }
