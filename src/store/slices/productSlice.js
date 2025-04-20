@@ -1,13 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { API_CONFIG } from '../../config/api';
 
-// Create axios instance with the base URL
 const api = axios.create({
-  baseURL: API_CONFIG.API_URL,
-  headers: {
-    'Content-Type': 'application/json'
-  }
+  baseURL: 'https://qaran.onrender.com/api/products'
 });
 
 const initialState = {
@@ -40,12 +35,9 @@ export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
   async (_, { rejectWithValue }) => {
     try {
-      // Remove /api from the path since it's in the baseURL
-      const response = await api.get('/products/categories');
-      console.log('Categories response:', response);
+      const response = await api.get('/categories');
       return response.data;
     } catch (error) {
-      console.error('Categories error:', error);
       return rejectWithValue(error.message);
     }
   }
@@ -55,12 +47,9 @@ export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
   async (_, { rejectWithValue }) => {
     try {
-      // Remove /api from the path
-      const response = await api.get('/products/featured');
-      console.log('Featured response:', response);
+      const response = await api.get('/featured');
       return response.data;
     } catch (error) {
-      console.error('Featured error:', error);
       return rejectWithValue(error.message);
     }
   }
@@ -70,12 +59,11 @@ export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
   async (_, { rejectWithValue }) => {
     try {
-      // Remove /api from the path
-      const response = await api.get('/products/offers');
-      console.log('Offers response:', response);
+      const response = await api.get('/offers');
+      console.log('Special Offers API Response:', response.data);
       return response.data;
     } catch (error) {
-      console.error('Offers error:', error);
+      console.error('Special Offers Error:', error);
       return rejectWithValue(error.message);
     }
   }
