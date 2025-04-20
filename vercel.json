@@ -13,7 +13,7 @@
   ],
   "headers": [
     {
-      "source": "/api/(.*)",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
@@ -25,7 +25,7 @@
         },
         {
           "key": "Access-Control-Allow-Headers",
-          "value": "X-Requested-With, Content-Type, Accept, Authorization"
+          "value": "X-Requested-With, Content-Type, Accept, Authorization, access-control-allow-origin"
         },
         {
           "key": "Access-Control-Allow-Credentials",
