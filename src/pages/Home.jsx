@@ -5,7 +5,7 @@ import HeroBanner from '../components/home/HeroBanner';
 import FeaturedProducts from '../components/home/FeaturedProducts';
 import SpecialOffers from '../components/home/SpecialOffers';
 import Categories from '../components/home/Categories';
-import { fetchCategories, fetchFeatured, fetchSpecialOffers } from '../features/products/productSlice';
+import { fetchCategories, fetchFeatured, fetchSpecialOffers } from '../store/slices/productSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
