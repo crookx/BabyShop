@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import productReducer from './slices/productSlice';
+import productReducer from '../features/products/productSlice';
 import uiReducer from './slices/uiSlice';
 import cartReducer from './slices/cartSlice';
 import wishlistReducer from './slices/wishlistSlice';
@@ -9,14 +9,12 @@ import wishlistReducer from './slices/wishlistSlice';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['products', 'cart']
+  whitelist: ['cart', 'wishlist']
 };
 
-const persistedProductReducer = persistReducer(persistConfig, productReducer);
-
-export const store = configureStore({
+const store = configureStore({
   reducer: {
-    products: persistedProductReducer,
+    products: productReducer,
     ui: uiReducer,
     cart: cartReducer,
     wishlist: wishlistReducer

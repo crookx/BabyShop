@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, Container, CircularProgress, Typography } from '@mui/material';
+import { Box, Container, CircularProgress, Typography, Alert } from '@mui/material';
 import HeroBanner from '../components/home/HeroBanner';
 import FeaturedProducts from '../components/home/FeaturedProducts';
 import SpecialOffers from '../components/home/SpecialOffers';
@@ -9,6 +9,7 @@ import { fetchCategories, fetchFeatured, fetchSpecialOffers } from '../features/
 
 const Home = () => {
   const dispatch = useDispatch();
+  const [error, setError] = useState(null);
   const { featured, categories, specialOffers, loading } = useSelector(state => ({
     featured: state.products.featured || [],
     categories: state.products.categories || [],
@@ -19,17 +20,27 @@ const Home = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        await Promise.all([
-          dispatch(fetchCategories()),
-          dispatch(fetchFeatured()),
-          dispatch(fetchSpecialOffers())
+        const results = await Promise.all([
+          dispatch(fetchCategories()).unwrap(),
+          dispatch(fetchFeatured()).unwrap(),
+          dispatch(fetchSpecialOffers()).unwrap()
         ]);
+        console.log('API Responses:', results);
       } catch (error) {
         console.error('Error loading data:', error);
+        setError(error.message);
       }
     };
     loadData();
   }, [dispatch]);
+
+  if (error) {
+    return (
+      <Box sx={{ p: 3 }}>
+        <Alert severity="error">{error}</Alert>
+      </Box>
+    );
+  }
 
   if (loading) {
     return (
