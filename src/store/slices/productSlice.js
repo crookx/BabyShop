@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Create axios instance with the correct base URL
+// Create axios instance with the correct base URL - FINAL VERSION
 const api = axios.create({
-  baseURL: 'https://qaran.onrender.com/api',  // Include /api here
+  baseURL: 'https://qaran.onrender.com',  // Remove /api from here
   headers: {
     'Content-Type': 'application/json'
   }
@@ -39,12 +39,9 @@ export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
   async (_, { rejectWithValue }) => {
     try {
-      // Remove /api from the path since it's in baseURL
-      const response = await api.get('/products/categories');
-      console.log('Categories URL:', `${api.defaults.baseURL}/products/categories`);
+      const response = await api.get('/api/products/categories');
       return response.data;
     } catch (error) {
-      console.error('Categories error:', error);
       return rejectWithValue(error.message);
     }
   }
@@ -54,8 +51,7 @@ export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
   async (_, { rejectWithValue }) => {
     try {
-      // Remove /api from the path
-      const response = await api.get('/products/featured');
+      const response = await api.get('/api/products/featured');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -67,11 +63,9 @@ export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
   async (_, { rejectWithValue }) => {
     try {
-      // Remove /api from the path
-      const response = await api.get('/products/offers');
+      const response = await api.get('/api/products/offers');
       return response.data;
     } catch (error) {
-      console.error('Special Offers Error:', error);
       return rejectWithValue(error.message);
     }
   }
