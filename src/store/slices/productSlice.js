@@ -41,7 +41,7 @@ export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/api/products/categories');
+      const response = await api.get('/products/categories');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -53,7 +53,7 @@ export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/api/products/featured');
+      const response = await api.get('/products/featured');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -65,7 +65,7 @@ export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/api/products/offers');
+      const response = await api.get('/products/offers');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
