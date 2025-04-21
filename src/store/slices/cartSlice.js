@@ -2,6 +2,14 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../config/axios';
 import { API_ENDPOINTS } from '../../config/api';
 
+const api = axios.create({
+  baseURL: 'https://qaran.onrender.com/api',  // Update to production URL
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  }
+});
+
 const initialState = {
   items: [],
   loading: false,
