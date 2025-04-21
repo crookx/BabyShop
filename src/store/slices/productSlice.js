@@ -1,12 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { API_CONFIG } from '../../config/api.config';
 
 const api = axios.create({
-  baseURL: 'https://qaran.onrender.com',  // Remove /api from here
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  },
+  baseURL: API_CONFIG.baseURL,
+  headers: API_CONFIG.headers,
   withCredentials: true
 });
 
@@ -28,7 +26,7 @@ export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async (params, { rejectWithValue }) => {
     try {
-      const response = await api.get('products', { params });
+      const response = await api.get('api/products', { params });  // Add 'api/' prefix
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -40,7 +38,7 @@ export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('products/categories');
+      const response = await api.get('api/products/categories');  // Remove leading slash
       return response.data?.data || [];
     } catch (error) {
       return rejectWithValue(error.message);
@@ -52,7 +50,7 @@ export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('products/featured');
+      const response = await api.get('api/products/featured');  // Remove leading slash
       return response.data?.data || [];
     } catch (error) {
       return rejectWithValue(error.message);
@@ -64,7 +62,7 @@ export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('products/offers');
+      const response = await api.get('api/products/offers');  // Remove leading slash
       return response.data?.data || [];
     } catch (error) {
       return rejectWithValue(error.message);
