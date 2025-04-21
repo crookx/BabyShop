@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Create axios instance with the correct base URL
 const api = axios.create({
-  baseURL: 'https://qaran.onrender.com/api',  // Include /api here
+  baseURL: 'https://qaran.onrender.com',
   headers: {
     'Content-Type': 'application/json',
-    'Accept': 'application/json'
+    'Accept': 'application/json',
+    'Access-Control-Allow-Origin': 'https://baby-shop-mcqv-n36rlgs5h-crookxs-projects.vercel.app'
   },
   withCredentials: true
 });
@@ -29,7 +29,7 @@ export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async (params, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products', { params });  // Remove /api from here
+      const response = await api.get('/api/products', { params });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -41,7 +41,7 @@ export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products/categories');  // Remove /api from here
+      const response = await api.get('/api/products/categories');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -53,7 +53,7 @@ export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products/featured');  // Remove /api from here
+      const response = await api.get('/api/products/featured');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -65,7 +65,7 @@ export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products/offers');  // Remove /api from here
+      const response = await api.get('/api/products/offers');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -89,7 +89,6 @@ const productSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
-        console.log('Reducer received payload:', action.payload);
         state.loading = false;
         state.items = action.payload;
         state.error = null;
@@ -99,7 +98,6 @@ const productSlice = createSlice({
         state.error = action.payload;
         state.items = [];
       })
-      // Categories
       .addCase(fetchCategories.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -113,7 +111,6 @@ const productSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      // Featured Products
       .addCase(fetchFeatured.pending, (state) => {
         state.loading = true;
       })
@@ -125,7 +122,6 @@ const productSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      // Special Offers
       .addCase(fetchSpecialOffers.pending, (state) => {
         state.loading = true;
         state.error = null;
