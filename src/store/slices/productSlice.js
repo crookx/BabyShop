@@ -41,7 +41,7 @@ export const fetchCategories = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await api.get('products/categories'); // Removed leading slash
-      return response.data;
+      return response.data.data || [];  // Extract data or return empty array
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -53,7 +53,7 @@ export const fetchFeatured = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await api.get('products/featured'); // Removed leading slash
-      return response.data;
+      return response.data.data || [];  // Extract data or return empty array
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -65,7 +65,7 @@ export const fetchSpecialOffers = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await api.get('products/offers'); // Removed leading slash
-      return response.data;
+      return response.data.data || [];  // Extract data or return empty array
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -103,7 +103,7 @@ const productSlice = createSlice({
       })
       .addCase(fetchCategories.fulfilled, (state, action) => {
         state.loading = false;
-        state.categories = action.payload.data;
+        state.categories = action.payload;
         state.error = null;
       })
       .addCase(fetchCategories.rejected, (state, action) => {
@@ -115,7 +115,7 @@ const productSlice = createSlice({
       })
       .addCase(fetchFeatured.fulfilled, (state, action) => {
         state.loading = false;
-        state.featured = action.payload.data;
+        state.featured = action.payload;
       })
       .addCase(fetchFeatured.rejected, (state, action) => {
         state.loading = false;
@@ -127,7 +127,7 @@ const productSlice = createSlice({
       })
       .addCase(fetchSpecialOffers.fulfilled, (state, action) => {
         state.loading = false;
-        state.specialOffers = action.payload.data || [];
+        state.specialOffers = action.payload || [];
         state.error = null;
       })
       .addCase(fetchSpecialOffers.rejected, (state, action) => {
