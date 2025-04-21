@@ -1,9 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Create single axios instance with correct baseURL
 const api = axios.create({
-  baseURL: 'https://qaran.onrender.com/api', // Include /api here
+  baseURL: 'https://qaran.onrender.com',  // Base URL without /api
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
@@ -28,7 +27,7 @@ export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async (params, { rejectWithValue }) => {
     try {
-      const response = await api.get('products', { params }); // Remove leading slash
+      const response = await api.get('/api/products', { params });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -40,7 +39,7 @@ export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('products/categories'); // Remove leading slash
+      const response = await api.get('/api/products/categories');
       return response.data?.data || [];
     } catch (error) {
       return rejectWithValue(error.message);
@@ -52,7 +51,7 @@ export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('products/featured'); // Remove leading slash
+      const response = await api.get('/api/products/featured');
       return response.data?.data || [];
     } catch (error) {
       return rejectWithValue(error.message);
@@ -64,7 +63,7 @@ export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('products/offers'); // Remove leading slash
+      const response = await api.get('/api/products/offers');
       return response.data?.data || [];
     } catch (error) {
       return rejectWithValue(error.message);
