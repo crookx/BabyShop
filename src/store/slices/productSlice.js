@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Create axios instance with the correct base URL - Add /api here
+// Create axios instance with the correct base URL - Remove /api from here
 const api = axios.create({
-  baseURL: 'https://qaran.onrender.com/api',  // Add /api here
+  baseURL: 'https://qaran.onrender.com',  // Remove /api from here
   headers: {
     'Content-Type': 'application/json'
   }
@@ -27,7 +27,7 @@ export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async (params, { rejectWithValue }) => {
     try {
-      const response = await api.get('/api/products', { params }); // Add /api here
+      const response = await api.get('/api/products', { params });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -39,7 +39,7 @@ export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products/categories'); // Remove /api
+      const response = await api.get('/api/products/categories');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -51,7 +51,7 @@ export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/api/products/featured'); // Add /api here
+      const response = await api.get('/api/products/featured');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -63,7 +63,7 @@ export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/api/products/offers'); // Add /api here
+      const response = await api.get('/api/products/offers');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
