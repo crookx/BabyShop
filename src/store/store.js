@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import { api } from './services/api';
 import cartReducer from './slices/cartSlice';
 import authReducer from './slices/authSlice';
-import productReducer from './slices/productSlice'; // Fix import path
+import productReducer from './slices/productSlice';  // Update import path
 import uiReducer from './slices/uiSlice';
 import wishlistReducer from './slices/wishlistSlice';
 import categoryReducer from './slices/categorySlice';
