@@ -28,9 +28,3 @@ export const API_ENDPOINTS = {
     OFFERS: '/api/products/offers'
   }
 };
-
-export const getAuthHeader = () => ({
-  'Authorization': `Bearer ${localStorage.getItem('token')}`,
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-});
