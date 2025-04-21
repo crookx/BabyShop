@@ -65,7 +65,7 @@ export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/api/products/offers');
+      const response = await api.get('/products/offers'); // Remove the duplicate /api
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
