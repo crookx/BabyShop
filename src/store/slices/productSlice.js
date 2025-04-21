@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+// Remove /api from baseURL since it's already in the endpoints
 const api = axios.create({
-  baseURL: 'https://qaran.onrender.com/api',
+  baseURL: 'https://qaran.onrender.com',
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
@@ -28,7 +29,7 @@ export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async (params, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products', { params });
+      const response = await api.get('/api/products', { params });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -40,7 +41,7 @@ export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products/categories');
+      const response = await api.get('/api/products/categories');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -52,7 +53,7 @@ export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products/featured');
+      const response = await api.get('/api/products/featured');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -64,7 +65,7 @@ export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products/offers');
+      const response = await api.get('/api/products/offers');
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
