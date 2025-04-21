@@ -20,7 +20,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://baby-shop-mcqv.vercel.app"
+          "value": "https://qaran.onrender.com"
         },
         {
           "key": "Access-Control-Allow-Methods",
@@ -28,7 +28,7 @@
         },
         {
           "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type,Authorization,Accept"
+          "value": "Content-Type,Authorization,Accept,Origin,X-Requested-With"
         },
         {
           "key": "Access-Control-Allow-Credentials",

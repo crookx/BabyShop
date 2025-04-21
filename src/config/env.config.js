@@ -5,7 +5,7 @@ const config = {
   },
   production: {
     API_URL: 'https://qaran.onrender.com/api',
-    SITE_URL: 'https://baby-shop-mcqv-h1tp7d2j0-crookxs-projects.vercel.app'
+    SITE_URL: 'https://baby-shop-mcqv.vercel.app'
   }
 };
 
