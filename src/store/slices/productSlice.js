@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// baseURL already includes /api
+// Create axios instance with correct baseURL
 const api = axios.create({
-  baseURL: 'https://qaran.onrender.com/api',
+  baseURL: 'https://qaran.onrender.com',  // Remove /api from here
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
@@ -29,7 +29,7 @@ export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async (params, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products', { params }); // Remove /api
+      const response = await api.get('/api/products', { params }); // Add /api here
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -41,7 +41,7 @@ export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products/categories'); // Already correct
+      const response = await api.get('/api/products/categories'); // Add /api here
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -53,7 +53,7 @@ export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products/featured'); // Already correct
+      const response = await api.get('/api/products/featured'); // Add /api here
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -65,7 +65,7 @@ export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/products/offers'); // Already correct
+      const response = await api.get('/api/products/offers'); // Add /api here
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
