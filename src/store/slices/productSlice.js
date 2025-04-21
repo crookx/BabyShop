@@ -2,12 +2,11 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://qaran.onrender.com/api',  // Keep this as is
+  baseURL: 'https://qaran.onrender.com',
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
-  },
-  withCredentials: true
+  }
 });
 
 const initialState = {
@@ -28,7 +27,7 @@ export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async (params, { rejectWithValue }) => {
     try {
-      const response = await api.get('products', { params }); // Removed leading slash
+      const response = await api.get('/api/products', { params });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -40,8 +39,8 @@ export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('products/categories'); // Removed leading slash
-      return response.data.data || [];  // Extract data or return empty array
+      const response = await api.get('/api/products/categories');
+      return response.data?.data || [];
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -52,8 +51,8 @@ export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('products/featured'); // Removed leading slash
-      return response.data.data || [];  // Extract data or return empty array
+      const response = await api.get('/api/products/featured');
+      return response.data?.data || [];
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -64,8 +63,8 @@ export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('products/offers'); // Removed leading slash
-      return response.data.data || [];  // Extract data or return empty array
+      const response = await api.get('/api/products/offers');
+      return response.data?.data || [];
     } catch (error) {
       return rejectWithValue(error.message);
     }
