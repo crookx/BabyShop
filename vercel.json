@@ -6,25 +6,35 @@
     {
       "src": "server/server.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "package.json",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/server/server.js"
+      "source": "/api/:path*",
+      "destination": "https://qaran.onrender.com/api/:path*"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
-  "env": {
-    "NODE_ENV": "production",
-    "MONGODB_URI": "@mongodb_uri",
-    "FRONTEND_URL": "https://baby-shop-two-iota.vercel.app"
-  }
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET,POST,PUT,DELETE,OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type,Authorization,Accept,Origin,X-Requested-With"
+        }
+      ]
+    }
+  ]
 }
