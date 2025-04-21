@@ -1,9 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Create axios instance with base URL
 const api = axios.create({
-  baseURL: 'https://qaran.onrender.com/api',
+  baseURL: 'https://qaran.onrender.com',
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
@@ -26,62 +25,117 @@ const initialState = {
 
 export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
-  async (params) => {
+  async (params, { rejectWithValue }) => {
     try {
-      const categorySlug = params.category?.toLowerCase().replace(/\s+/g, '-');
-      
-      const response = await api.get('products', { 
-        params: {
-          page: params.page || 1,
-          category: categorySlug || '',
-          priceRange: params.priceRange || '0-1000',
-          ageGroup: params.ageGroup || ''
-        }
-      });
-      
-      console.log('API Response:', response.data);
-      return Array.isArray(response.data) ? response.data : [];
+      const response = await api.get('/api/products', { params });
+      return response.data;
     } catch (error) {
-      console.error('Error fetching products:', error);
-      throw error.response?.data?.message || 'Failed to fetch products';
+      return rejectWithValue(error.message);
     }
   }
 );
 
 export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
-  async () => {
+  async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('products/categories');
+      const response = await api.get('/api/products/categories');
       return response.data?.data || [];
     } catch (error) {
-      throw error.response?.data?.message || 'Failed to fetch categories';
+      return rejectWithValue(error.message);
     }
   }
 );
 
-export const fetchFeaturedProducts = createAsyncThunk(
+export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
-  async () => {
+  async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('products/featured');
-      return Array.isArray(response.data) ? response.data : response.data?.data || [];
+      const response = await api.get('/api/products/featured');
+      return response.data?.data || [];
     } catch (error) {
-      throw error.response?.data?.message || 'Failed to fetch featured products';
+      return rejectWithValue(error.message);
     }
   }
 );
 
 export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
-  async () => {
+  async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('products/offers');
-      return response.data?.data?.offers || [];
+      const response = await api.get('/api/products/offers');
+      return response.data?.data || [];
     } catch (error) {
-      throw error.response?.data?.message || 'Failed to fetch special offers';
+      return rejectWithValue(error.message);
     }
   }
 );
 
-// ...existing reducers and slice code...
+const productSlice = createSlice({
+  name: 'products',
+  initialState,
+  reducers: {
+    clearProducts: (state) => {
+      state.items = [];
+      state.error = null;
+    }
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchProducts.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchProducts.fulfilled, (state, action) => {
+        state.loading = false;
+        state.items = action.payload;
+        state.error = null;
+      })
+      .addCase(fetchProducts.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+        state.items = [];
+      })
+      .addCase(fetchCategories.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchCategories.fulfilled, (state, action) => {
+        state.loading = false;
+        state.categories = action.payload;
+        state.error = null;
+      })
+      .addCase(fetchCategories.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(fetchFeatured.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchFeatured.fulfilled, (state, action) => {
+        state.loading = false;
+        state.featured = action.payload;
+      })
+      .addCase(fetchFeatured.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(fetchSpecialOffers.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchSpecialOffers.fulfilled, (state, action) => {
+        state.loading = false;
+        state.specialOffers = action.payload || [];
+        state.error = null;
+      })
+      .addCase(fetchSpecialOffers.rejected, (state, action) => {
+        state.loading = false;
+        state.specialOffers = [];
+        state.error = action.payload;
+      });
+  }
+});
+
+export const { clearProducts } = productSlice.actions;
+export default productSlice.reducer;

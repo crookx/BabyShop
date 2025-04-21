@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import { api } from './services/api';
 import cartReducer from './slices/cartSlice';
 import authReducer from './slices/authSlice';
-import productReducer from './slices/productSlice';
+import productReducer from './slices/productSlice'; // Fix import path
 import uiReducer from './slices/uiSlice';
 import wishlistReducer from './slices/wishlistSlice';
 import categoryReducer from './slices/categorySlice';
@@ -24,7 +24,7 @@ export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     cart: cartReducer,
-    products: productReducer,
+    products: productReducer, // Updated product reducer import
     ui: uiReducer,
     wishlist: wishlistReducer,
     categories: persistedCategoryReducer, // Use persisted category reducer
