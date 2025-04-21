@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://qaran.onrender.com/api',
+  baseURL: 'https://qaran.onrender.com',  // Remove /api from here
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
