@@ -7,3 +7,6 @@ node_modules/
 uploads/
 logs/
 *.log
+
+# production
+/build
