@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Create axios instance with the correct base URL
 const api = axios.create({
-  baseURL: 'https://qaran.onrender.com',  // Remove /api from here
+  baseURL: 'https://qaran.onrender.com/api',  // Include /api here
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
@@ -29,7 +29,7 @@ export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async (params, { rejectWithValue }) => {
     try {
-      const response = await api.get('/api/products', { params });
+      const response = await api.get('/products', { params });  // Remove /api from here
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -41,7 +41,7 @@ export const fetchCategories = createAsyncThunk(
   'products/fetchCategories',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/api/products/categories');
+      const response = await api.get('/products/categories');  // Remove /api from here
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -53,7 +53,7 @@ export const fetchFeatured = createAsyncThunk(
   'products/fetchFeatured',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/api/products/featured');
+      const response = await api.get('/products/featured');  // Remove /api from here
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -65,7 +65,7 @@ export const fetchSpecialOffers = createAsyncThunk(
   'products/fetchSpecialOffers',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get('/api/products/offers');
+      const response = await api.get('/products/offers');  // Remove /api from here
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
