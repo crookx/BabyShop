@@ -21,7 +21,12 @@ export const API_ENDPOINTS = {
   },
   CART: '/api/cart',
   WISHLIST: '/api/wishlist',
-  PRODUCTS: '/api/products'
+  PRODUCTS: {
+    BASE: '/api/products',
+    CATEGORIES: '/api/products/categories',
+    FEATURED: '/api/products/featured',
+    OFFERS: '/api/products/offers'
+  }
 };
 
 export const getAuthHeader = () => ({
