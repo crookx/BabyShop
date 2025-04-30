@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://api.qaranbaby.com/api'
+  ? 'https://qaran-baby-shop-api.onrender.com/api'
   : 'http://localhost:8080/api';
 
 const api = axios.create({
