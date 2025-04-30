@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Dialog, 
   DialogContent, 
@@ -6,14 +6,88 @@ import {
   Grid, 
   Typography,
   Box,
-  Button
-} from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useProductActions } from '../../hooks/useProductActions';
+  Button,
+  CircularProgress
+} from '@mui.material';
+import { 
+  Close as CloseIcon, 
+  ShoppingCart, 
+  RemoveShoppingCart,
+  FavoriteBorder, 
+  Favorite 
+} from '@mui/icons-material';
+import { motion } from 'framer-motion';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCart } from '../../store/slices/cartSlice';
+import { fetchWishlist } from '../../store/slices/wishlistSlice';
+import { toast } from 'react-toastify';
+import { useNavigate, useLocation } from 'react-router-dom';
+import api from '../../services/api';
 
 const QuickViewModal = ({ open, onClose, product }) => {
-  const { handleAddToCart, handleAddToWishlist } = useProductActions();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [cartLoading, setCartLoading] = useState(false);
+  const [wishlistLoading, setWishlistLoading] = useState(false);
+  const { user } = useSelector(state => state.auth);
+  const { items: cartItems } = useSelector(state => state.cart);
+  const { items: wishlistItems } = useSelector(state => state.wishlist);
+
+  const isInCart = cartItems?.some(item => item?.product?._id === product?._id);
+  const isInWishlist = wishlistItems?.some(item => item?._id === product?._id);
+
+  const handleCartAction = async () => {
+    if (!user) {
+      navigate('/auth', { 
+        state: { 
+          from: location.pathname,
+          action: 'cart',
+          productId: product._id
+        }
+      });
+      onClose();
+      return;
+    }
+
+    try {
+      setCartLoading(true);
+      const response = await api.post('/cart/toggle', { productId: product._id });
+      await dispatch(fetchCart());
+      toast.success(isInCart ? 'Removed from cart' : 'Added to cart');
+    } catch (error) {
+      console.error('Cart error:', error);
+      toast.error(error?.message || 'Failed to update cart');
+    } finally {
+      setCartLoading(false);
+    }
+  };
+
+  const handleWishlistAction = async () => {
+    if (!user) {
+      navigate('/auth', { 
+        state: { 
+          from: location.pathname,
+          action: 'wishlist',
+          productId: product._id
+        }
+      });
+      onClose();
+      return;
+    }
+
+    try {
+      setWishlistLoading(true);
+      const response = await api.post('/wishlist/toggle', { productId: product._id });
+      await dispatch(fetchWishlist());
+      toast.success(isInWishlist ? 'Removed from wishlist' : 'Added to wishlist');
+    } catch (error) {
+      console.error('Wishlist error:', error);
+      toast.error(error?.message || 'Failed to update wishlist');
+    } finally {
+      setWishlistLoading(false);
+    }
+  };
 
   return (
     <Dialog
@@ -67,17 +141,48 @@ const QuickViewModal = ({ open, onClose, product }) => {
             <Box sx={{ display: 'flex', gap: 2 }}>
               <Button 
                 variant="contained"
-                onClick={() => handleAddToCart(product?._id)}
+                startIcon={cartLoading ? null : isInCart ? <RemoveShoppingCart /> : <ShoppingCart />}
+                onClick={handleCartAction}
+                disabled={cartLoading}
                 fullWidth
+                sx={{
+                  bgcolor: isInCart ? 'grey.200' : 'primary.main',
+                  color: isInCart ? 'text.primary' : 'white',
+                  '&:hover': {
+                    bgcolor: isInCart ? 'grey.300' : 'primary.dark',
+                  }
+                }}
               >
-                Add to Cart
+                {cartLoading ? (
+                  <CircularProgress size={24} color="inherit" />
+                ) : isInCart ? (
+                  'Remove from Cart'
+                ) : (
+                  'Add to Cart'
+                )}
               </Button>
               <Button
                 variant="outlined"
-                onClick={() => handleAddToWishlist(product?._id)}
+                startIcon={wishlistLoading ? null : isInWishlist ? <Favorite /> : <FavoriteBorder />}
+                onClick={handleWishlistAction}
+                disabled={wishlistLoading}
                 fullWidth
+                sx={{
+                  color: isInWishlist ? 'error.main' : 'inherit',
+                  borderColor: isInWishlist ? 'error.main' : 'inherit',
+                  '&:hover': {
+                    borderColor: isInWishlist ? 'error.dark' : 'inherit',
+                    bgcolor: isInWishlist ? 'error.lighter' : 'action.hover'
+                  }
+                }}
               >
-                Add to Wishlist
+                {wishlistLoading ? (
+                  <CircularProgress size={24} color="inherit" />
+                ) : isInWishlist ? (
+                  'Remove from Wishlist'
+                ) : (
+                  'Add to Wishlist'
+                )}
               </Button>
             </Box>
           </Grid>

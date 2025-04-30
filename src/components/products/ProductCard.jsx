@@ -1,231 +1,120 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Card, CardMedia, CardContent, Typography, Box, Rating, IconButton, Tooltip } from '@mui/material';
-import { Favorite, FavoriteBorder, ShoppingCart } from '@mui/icons-material';
+import { useDispatch, useSelector } from 'react-redux';
+import { Card, CardContent, Box, Typography, Button, IconButton } from '@mui/material';
+import { ShoppingCart, FavoriteBorder, Favorite } from '@mui/icons-material';
 import { motion } from 'framer-motion';
-import { addToCart } from '../../store/slices/cartSlice';
-import { addToWishlist, removeFromWishlist } from '../../store/slices/wishlistSlice';
-import { showNotification } from '../../store/slices/notificationSlice';
-import { ROUTES } from '../../config/routes';
-import { getAuthData } from '../../utils/auth';
+import { toggleCart, fetchCartItems } from '../../store/slices/cartSlice';
+import { toggleWishlistItem } from '../../store/slices/wishlistSlice';
+import { toast } from 'react-toastify';
 
 const ProductCard = ({ product }) => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const { token } = useSelector(state => state.auth);
-  const wishlist = useSelector(state => state.wishlist.items);
-  const isInWishlist = wishlist.some(item => item._id === product._id);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isProcessing, setIsProcessing] = useState(false);
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [cartLoading, setCartLoading] = useState(false);
+  const { items: cartItems } = useSelector(state => state.cart || { items: [] });
+  const { items: wishlistItems } = useSelector(state => state.wishlist || { items: [] });
+  const { user } = useSelector(state => state.auth || { user: null });
 
-  const handleAuthAction = (action) => {
-    dispatch(showNotification({
-      message: `Please login to ${action === 'cart' ? 'add items to cart' : 'manage wishlist'}`,
-      type: 'info'
-    }));
-    navigate('/auth', { 
-      state: { 
-        from: location.pathname,
-        action
-      }
-    });
-  };
-
-  const handleAddToCart = async (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    if (!token) {
-      handleAuthAction('cart');
-      return;
-    }
-
-    try {
-      await dispatch(addToCart({ productId: product._id, quantity: 1 })).unwrap();
-      dispatch(showNotification({
-        message: 'Product added to cart successfully',
-        type: 'success'
-      }));
-    } catch (error) {
-      if (error.status === 401) {
-        handleAuthAction('cart');
-      } else {
-        dispatch(showNotification({
-          message: error.message || 'Failed to add item to cart',
-          type: 'error'
-        }));
-      }
-    }
-  };
-
-  const handleWishlistToggle = async (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    if (!token) {
-      handleAuthAction('wishlist');
-      return;
-    }
-
-    try {
-      if (isInWishlist) {
-        await dispatch(removeFromWishlist(product._id)).unwrap();
-        dispatch(showNotification({
-          message: 'Removed from wishlist',
-          type: 'success'
-        }));
-      } else {
-        await dispatch(addToWishlist(product._id)).unwrap();
-        dispatch(showNotification({
-          message: 'Added to wishlist',
-          type: 'success'
-        }));
-      }
-    } catch (error) {
-      if (error.status === 401) {
-        handleAuthAction('wishlist');
-      } else {
-        dispatch(showNotification({
-          message: error.message || 'Failed to update wishlist',
-          type: 'error'
-        }));
-      }
-    }
-  };
+  const isInCart = cartItems?.some(item => item.productId === product._id);
+  const isInWishlist = wishlistItems?.some(item => item._id === product._id);
 
   const handleClick = () => {
+    if (!product?._id) {
+      console.error('Invalid product ID:', product);
+      return;
+    }
     navigate(`/product/${product._id}`);
   };
 
-  if (!product) return null;
+  const handleAddToCart = async () => {
+    try {
+      if (!user) {
+        navigate('/auth', { state: { from: location.pathname } });
+        return;
+      }
+      setCartLoading(true);
+      await dispatch(toggleCart({ productId: product._id })).unwrap();
+      await dispatch(fetchCartItems());
+    } catch (error) {
+      toast.error(error?.message || 'Failed to update cart');
+    } finally {
+      setCartLoading(false);
+    }
+  };
+
+  const handleWishlistAction = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!user) {
+      navigate('/auth', { 
+        state: { 
+          from: location.pathname,
+          action: 'wishlist',
+          productId: product._id
+        }
+      });
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await dispatch(toggleWishlistItem(product._id)).unwrap();
+      toast.success(isInWishlist ? 'Removed from wishlist' : 'Added to wishlist');
+    } catch (error) {
+      toast.error(error?.message || 'Failed to update wishlist');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <motion.div
       whileHover={{ y: -5 }}
-      transition={{ duration: 0.2 }}
+      onClick={handleClick}
+      style={{ cursor: 'pointer' }}
     >
-      <Card
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onClick={handleClick}
-        sx={{
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          position: 'relative',
-          cursor: 'pointer',
-          transition: 'all 0.3s ease',
-          '&:hover': {
-            boxShadow: 6
-          }
-        }}
-      >
-        <Box sx={{ position: 'relative' }}>
-          <CardMedia
-            component="img"
-            height="200"
-            image={product.images?.[0] || '/images/product-placeholder.jpg'}
-            alt={product.name}
-            sx={{ objectFit: 'cover' }}
-          />
-          
+      <Card>
+        <Box sx={{ position: 'relative', paddingTop: '100%' }}>
           <Box
+            component="img"
+            src={product.image}
+            alt={product.name}
             sx={{
               position: 'absolute',
-              top: 8,
-              right: 8,
-              display: 'flex',
-              gap: 1,
-              opacity: isHovered ? 1 : 0,
-              transition: 'opacity 0.3s ease',
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              borderRadius: '50%',
-              p: 0.5
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover'
             }}
-          >
-            <Tooltip title={isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}>
-              <IconButton
-                size="small"
-                onClick={handleWishlistToggle}
-                disabled={isProcessing}
-                sx={{ 
-                  color: isInWishlist ? 'error.main' : 'action.active',
-                  '&:hover': { color: 'error.main' }
-                }}
-              >
-                {isInWishlist ? <Favorite /> : <FavoriteBorder />}
-              </IconButton>
-            </Tooltip>
-          </Box>
+          />
         </Box>
-
-        <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-          <Typography 
-            variant="h6" 
-            component="h2" 
-            sx={{ 
-              fontSize: '1rem',
-              height: '2.4em',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              display: '-webkit-box',
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-              mb: 1
-            }}
-          >
-            {product.name}
+        <CardContent>
+          <Typography variant="h6" noWrap>{product.name}</Typography>
+          <Typography variant="body1" color="primary" gutterBottom>
+            ${product.price?.toFixed(2)}
           </Typography>
-          
-          <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-            <Rating 
-              value={product.rating || 0} 
-              readOnly 
-              size="small"
-              precision={0.5}
-            />
-            <Typography variant="body2" color="text.secondary" sx={{ ml: 1 }}>
-              ({product.reviews || 0})
-            </Typography>
-          </Box>
-
-          <Box sx={{ 
-            mt: 'auto',
-            display: 'flex', 
-            justifyContent: 'space-between', 
-            alignItems: 'center'
-          }}>
-            <Box>
-              <Typography variant="h6" color="primary" sx={{ fontWeight: 'bold' }}>
-                ${Number(product.price).toFixed(2)}
-              </Typography>
-              {product.discount > 0 && (
-                <Typography 
-                  variant="body2" 
-                  color="error.main" 
-                  sx={{ fontWeight: 'bold' }}
-                >
-                  {product.discount}% OFF
-                </Typography>
-              )}
-            </Box>
-            
-            <Tooltip title="Add to Cart">
-              <IconButton
-                onClick={handleAddToCart}
-                sx={{
-                  bgcolor: 'primary.main',
-                  color: 'white',
-                  '&:hover': {
-                    bgcolor: 'primary.dark'
-                  }
-                }}
-              >
-                <ShoppingCart />
-              </IconButton>
-            </Tooltip>
+          <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
+            <Button
+              variant="contained"
+              startIcon={<ShoppingCart />}
+              onClick={handleAddToCart}
+              disabled={cartLoading}
+              fullWidth
+            >
+              {isInCart ? 'In Cart' : 'Add to Cart'}
+            </Button>
+            <IconButton 
+              onClick={handleWishlistAction}
+              disabled={loading}
+              color={isInWishlist ? 'error' : 'default'}
+            >
+              {isInWishlist ? <Favorite /> : <FavoriteBorder />}
+            </IconButton>
           </Box>
         </CardContent>
       </Card>
@@ -233,4 +122,4 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default React.memo(ProductCard);

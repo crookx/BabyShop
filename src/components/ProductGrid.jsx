@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Card, CardMedia, CardContent, Typography, Box, Rating } from '@mui/material';
-import { formatCurrency } from '../utils/format';
+import { Link } from 'react-router-dom';
 import WishlistButton from './products/WishlistButton';
 
 const ProductGrid = ({ products }) => {
@@ -17,13 +17,16 @@ const ProductGrid = ({ products }) => {
   return (
     <Grid container spacing={3}>
       {products.map((product) => (
-        <Grid item xs={12} sm={6} md={4} key={product._id}>
+        <Grid item xs={12} sm={6} md={4} lg={3} key={product._id}>
           <Card 
+            component={Link}
+            to={`/product/${product._id}`}
             sx={{ 
               height: '100%',
               display: 'flex',
               flexDirection: 'column',
               position: 'relative',
+              textDecoration: 'none',
               '&:hover': {
                 transform: 'translateY(-4px)',
                 boxShadow: 4,
@@ -44,7 +47,7 @@ const ProductGrid = ({ products }) => {
             />
             
             <CardContent sx={{ flexGrow: 1 }}>
-              <Typography gutterBottom variant="h6" component="h2" noWrap>
+              <Typography gutterBottom variant="h6" component="h2" noWrap color="text.primary">
                 {product.name}
               </Typography>
               
@@ -58,20 +61,21 @@ const ProductGrid = ({ products }) => {
                   ({product.rating})
                 </Typography>
               </Box>
-              
-              <Typography variant="h6" color="primary">
-                {formatCurrency(product.price)}
-              </Typography>
-              
-              {product.inStock ? (
-                <Typography variant="body2" color="success.main">
-                  In Stock
+
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Typography variant="h6" color="primary">
+                  ${product.price.toFixed(2)}
                 </Typography>
-              ) : (
-                <Typography variant="body2" color="error">
-                  Out of Stock
-                </Typography>
-              )}
+                {product.inStock ? (
+                  <Typography variant="body2" color="success.main">
+                    In Stock
+                  </Typography>
+                ) : (
+                  <Typography variant="body2" color="error">
+                    Out of Stock
+                  </Typography>
+                )}
+              </Box>
             </CardContent>
           </Card>
         </Grid>

@@ -1,79 +1,93 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from '../../config/axios';
-import { API_ENDPOINTS } from '../../config/api';
+import axios from 'axios';
+
+const BASE_URL = 'http://localhost:8080/api';
 
 const api = axios.create({
-  baseURL: 'https://qaran.onrender.com/api',  // Update to production URL
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  }
+  baseURL: BASE_URL,
+  headers: { 'Content-Type': 'application/json' },
+  withCredentials: true
 });
 
+api.interceptors.request.use(config => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+api.interceptors.response.use(
+  response => response,
+  error => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem('token');
+      const returnTo = encodeURIComponent(window.location.pathname);
+      window.location.href = `/auth/login?returnTo=${returnTo}`;
+    }
+    return Promise.reject(error);
+  }
+);
+
 export const fetchWishlist = createAsyncThunk(
-  'wishlist/fetchWishlist',
+  'wishlist/fetch',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(API_ENDPOINTS.WISHLIST);
-      return response.data?.items || [];
-    } catch (error) {
-      if (error.response?.status === 401) {
-        return rejectWithValue({ status: 401, message: 'Please login to view wishlist' });
+      const token = localStorage.getItem('token');
+      if (!token) {
+        const returnTo = encodeURIComponent(window.location.pathname);
+        window.location.href = `/auth/login?returnTo=${returnTo}`;
+        throw new Error('AUTH_REQUIRED');
       }
-      return rejectWithValue({ 
-        status: error.response?.status,
-        message: error.response?.data?.message || 'Failed to fetch wishlist' 
-      });
+      const response = await api.get('/wishlist');
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data?.message || 'Failed to fetch wishlist');
     }
   }
 );
 
-export const addToWishlist = createAsyncThunk(
-  'wishlist/addToWishlist',
+export const toggleWishlistItem = createAsyncThunk(
+  'wishlist/toggleItem',
   async (productId, { rejectWithValue }) => {
     try {
-      const response = await axios.post(API_ENDPOINTS.WISHLIST, { productId });
-      return response.data?.items || [];
+      const response = await api.post('/wishlist/toggle', { productId });
+      return response.data?.data?.items || [];
     } catch (error) {
-      if (error.response?.status === 401) {
-        return rejectWithValue({ status: 401, message: 'Please login to add to wishlist' });
-      }
-      return rejectWithValue({ 
-        status: error.response?.status,
-        message: error.response?.data?.message || 'Failed to add to wishlist'
-      });
+      return rejectWithValue(error.response?.data?.message || 'Failed to update wishlist');
     }
   }
 );
 
-export const removeFromWishlist = createAsyncThunk(
-  'wishlist/removeFromWishlist',
+export const toggleWishlist = createAsyncThunk(
+  'wishlist/toggle',
   async (productId, { rejectWithValue }) => {
     try {
-      const response = await axios.delete(`${API_ENDPOINTS.WISHLIST}/${productId}`);
-      return response.data?.items || [];
+      const token = localStorage.getItem('token');
+      if (!token) {
+        throw new Error('AUTH_REQUIRED');
+      }
+      const response = await api.post('/wishlist/toggle', { productId });
+      return response.data;
     } catch (error) {
-      return rejectWithValue({
-        status: error.response?.status,
-        message: error.response?.data?.message || 'Failed to remove from wishlist'
-      });
+      if (error.message === 'AUTH_REQUIRED') {
+        window.location.href = `/auth/login?returnTo=${encodeURIComponent(window.location.pathname)}`;
+      }
+      return rejectWithValue(error.response?.data || error.message);
     }
   }
 );
-
-const initialState = {
-  items: [],
-  loading: false,
-  error: null
-};
 
 const wishlistSlice = createSlice({
   name: 'wishlist',
-  initialState,
+  initialState: {
+    items: [],
+    loading: false,
+    error: null
+  },
   reducers: {
     clearWishlist: (state) => {
       state.items = [];
-      state.error = null;
     }
   },
   extraReducers: (builder) => {
@@ -83,29 +97,23 @@ const wishlistSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchWishlist.fulfilled, (state, action) => {
-        state.items = action.payload;
         state.loading = false;
-        state.error = null;
+        state.items = action.payload?.data?.items || [];
       })
       .addCase(fetchWishlist.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-        if (action.payload?.status === 401) {
-          state.items = [];
-        }
       })
-      .addCase(addToWishlist.fulfilled, (state, action) => {
-        state.items = action.payload;
+      .addCase(toggleWishlistItem.pending, (state) => {
+        state.loading = true;
         state.error = null;
       })
-      .addCase(addToWishlist.rejected, (state, action) => {
-        state.error = action.payload;
-      })
-      .addCase(removeFromWishlist.fulfilled, (state, action) => {
+      .addCase(toggleWishlistItem.fulfilled, (state, action) => {
+        state.loading = false;
         state.items = action.payload;
-        state.error = null;
       })
-      .addCase(removeFromWishlist.rejected, (state, action) => {
+      .addCase(toggleWishlistItem.rejected, (state, action) => {
+        state.loading = false;
         state.error = action.payload;
       });
   }

@@ -1,0 +1,338 @@
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$ node server/scripts/checkProductDetails.js
+� Connecting to MongoDB...
+(node:8416) [DEP0040] DeprecationWarning: The `punycode` module is depre
+cated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was create
+d)
+
+� Product Details:
+MongoDB ID: 680e6e7071d895e0f53b642c
+Name: Baby Romper
+Slug: baby-romper-clothing
+Rating: 3.6
+Review Count: 7
+
+� Test Commands (copy & paste these):
+
+# Reviews
+curl -X GET "http://localhost:8080/api/reviews/product/680e6e7071d895e0f
+53b642c?sort=newest&rating=all&page=1&limit=10"
+
+# Review Stats
+curl -X GET "http://localhost:8080/api/reviews/stats/680e6e7071d895e0f53
+b642c"
+
+# Q&A
+curl -X GET "http://localhost:8080/api/questions/product/680e6e7071d895e
+0f53b642c?sort=newest&page=1"
+
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$ node server/scripts/linkReviews.js
+Database URI: mongodb://localhost:27017/qaran_db
+Initializing database connection...
+(node:19040) [DEP0040] DeprecationWarning: The `punycode` module is depr
+ecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was create
+d)
+MongoDB Connected: localhost
+Found 146 products
+Created test user IDs
+Skipping Baby Romper - already has 7 reviews
+Updated Baby Romper rating to 3.6 (7 reviews)
+Skipping Cotton Onesie - already has 6 reviews
+Updated Cotton Onesie rating to 4.2 (6 reviews)
+Skipping Sleep Suit - already has 6 reviews
+Updated Sleep Suit rating to 4.2 (6 reviews)
+Skipping Baby Dress - already has 7 reviews
+Updated Baby Dress rating to 4.9 (7 reviews)
+Skipping Infant Sweater - already has 7 reviews
+Updated Infant Sweater rating to 3.4 (7 reviews)
+Skipping Baby Pants - already has 7 reviews
+Updated Baby Pants rating to 4.6 (7 reviews)
+Skipping Bodysuit Set - already has 5 reviews
+Updated Bodysuit Set rating to 4.2 (5 reviews)
+Skipping Baby Socks Pack - already has 5 reviews
+Updated Baby Socks Pack rating to 3.8 (5 reviews)
+Skipping Baby Cap Set - already has 6 reviews
+Updated Baby Cap Set rating to 3.8 (6 reviews)
+Skipping Fleece Jacket - already has 7 reviews
+Updated Fleece Jacket rating to 4.1 (7 reviews)
+Skipping Baby Bottle - already has 5 reviews
+Updated Baby Bottle rating to 4.4 (5 reviews)
+Skipping Bottle Sterilizer - already has 3 reviews
+Updated Bottle Sterilizer rating to 3.7 (3 reviews)
+Skipping Bottle Warmer - already has 7 reviews
+Updated Bottle Warmer rating to 4.1 (7 reviews)
+Skipping Feeding Set - already has 7 reviews
+Updated Feeding Set rating to 3.9 (7 reviews)
+Skipping Sippy Cup - already has 3 reviews
+Updated Sippy Cup rating to 4.3 (3 reviews)
+Skipping High Chair - already has 3 reviews
+Updated High Chair rating to 4.3 (3 reviews)
+Skipping Baby Bowl Set - already has 4 reviews
+Updated Baby Bowl Set rating to 4.0 (4 reviews)
+Skipping Baby Spoon Set - already has 6 reviews
+Updated Baby Spoon Set rating to 3.3 (6 reviews)
+Skipping Diaper Pack - already has 4 reviews
+Updated Diaper Pack rating to 4.3 (4 reviews)
+Skipping Changing Mat - already has 4 reviews
+Updated Changing Mat rating to 3.3 (4 reviews)
+Skipping Diaper Bag - already has 7 reviews
+Updated Diaper Bag rating to 4.6 (7 reviews)
+Skipping Wipes Pack - already has 6 reviews
+Updated Wipes Pack rating to 4.2 (6 reviews)
+Skipping Diaper Rash Cream - already has 4 reviews
+Updated Diaper Rash Cream rating to 4.3 (4 reviews)
+Skipping Diaper Pail - already has 3 reviews
+Updated Diaper Pail rating to 4.3 (3 reviews)
+Skipping Baby Powder - already has 3 reviews
+Updated Baby Powder rating to 5.0 (3 reviews)
+Skipping Changing Station - already has 7 reviews
+Updated Changing Station rating to 3.9 (7 reviews)
+Skipping Baby Shampoo - already has 7 reviews
+Updated Baby Shampoo rating to 4.3 (7 reviews)
+Skipping Baby Lotion - already has 7 reviews
+Updated Baby Lotion rating to 4.0 (7 reviews)
+Skipping Bath Tub - already has 7 reviews
+Updated Bath Tub rating to 4.1 (7 reviews)
+Skipping Wash Cloth Set - already has 3 reviews
+Updated Wash Cloth Set rating to 3.7 (3 reviews)
+Skipping Baby Oil - already has 4 reviews
+Updated Baby Oil rating to 4.0 (4 reviews)
+Skipping Bath Toys - already has 6 reviews
+Updated Bath Toys rating to 4.0 (6 reviews)
+Skipping Baby Soap - already has 4 reviews
+Updated Baby Soap rating to 3.8 (4 reviews)
+Skipping Bath Support - already has 3 reviews
+Updated Bath Support rating to 4.0 (3 reviews)
+Skipping Baby Crib - already has 3 reviews
+Updated Baby Crib rating to 4.0 (3 reviews)
+Skipping Changing Table - already has 4 reviews
+Updated Changing Table rating to 4.0 (4 reviews)
+Skipping Nursery Storage - already has 3 reviews
+Updated Nursery Storage rating to 3.0 (3 reviews)
+Skipping Baby Monitor - already has 7 reviews
+Updated Baby Monitor rating to 4.9 (7 reviews)
+Skipping Night Light - already has 4 reviews
+Updated Night Light rating to 4.0 (4 reviews)
+Skipping Crib Mobile - already has 7 reviews
+Updated Crib Mobile rating to 3.3 (7 reviews)
+Skipping Baby Dresser - already has 4 reviews
+Updated Baby Dresser rating to 4.5 (4 reviews)
+Skipping Wall Decor - already has 6 reviews
+Updated Wall Decor rating to 4.0 (6 reviews)
+Skipping Rattle Set - already has 3 reviews
+Updated Rattle Set rating to 4.0 (3 reviews)
+Skipping Teething Toy - already has 7 reviews
+Updated Teething Toy rating to 4.1 (7 reviews)
+Skipping Play Mat - already has 5 reviews
+Updated Play Mat rating to 3.8 (5 reviews)
+Skipping Soft Blocks - already has 5 reviews
+Updated Soft Blocks rating to 4.6 (5 reviews)
+Skipping Musical Toy - already has 4 reviews
+Updated Musical Toy rating to 4.0 (4 reviews)
+Skipping Activity Gym - already has 5 reviews
+Updated Activity Gym rating to 4.6 (5 reviews)
+Skipping Plush Animal - already has 7 reviews
+Updated Plush Animal rating to 4.1 (7 reviews)
+Skipping Learning Cube - already has 4 reviews
+Updated Learning Cube rating to 4.3 (4 reviews)
+Skipping Baby Gate - already has 3 reviews
+Updated Baby Gate rating to 5.0 (3 reviews)
+Skipping Corner Guards - already has 6 reviews
+Updated Corner Guards rating to 3.8 (6 reviews)
+Skipping Socket Covers - already has 5 reviews
+Updated Socket Covers rating to 3.4 (5 reviews)
+Skipping Safety Locks - already has 3 reviews
+Updated Safety Locks rating to 3.7 (3 reviews)
+Skipping Monitor Camera - already has 3 reviews
+Updated Monitor Camera rating to 4.0 (3 reviews)
+Skipping Anti-Slip Mat - already has 4 reviews
+Updated Anti-Slip Mat rating to 4.3 (4 reviews)
+Skipping Door Stopper - already has 7 reviews
+Updated Door Stopper rating to 4.6 (7 reviews)
+Skipping Cabinet Lock - already has 5 reviews
+Updated Cabinet Lock rating to 4.2 (5 reviews)
+Skipping Stroller - already has 6 reviews
+Updated Stroller rating to 4.2 (6 reviews)
+Skipping Car Seat - already has 4 reviews
+Updated Car Seat rating to 4.5 (4 reviews)
+Skipping Travel Cot - already has 4 reviews
+Updated Travel Cot rating to 4.3 (4 reviews)
+Skipping Baby Carrier - already has 6 reviews
+Updated Baby Carrier rating to 3.5 (6 reviews)
+Skipping Diaper Backpack - already has 7 reviews
+Updated Diaper Backpack rating to 4.0 (7 reviews)
+Skipping Travel Bottle Set - already has 4 reviews
+Updated Travel Bottle Set rating to 3.8 (4 reviews)
+Skipping Portable Changing Mat - already has 7 reviews
+Updated Portable Changing Mat rating to 4.3 (7 reviews)
+Skipping Travel High Chair - already has 4 reviews
+Updated Travel High Chair rating to 4.3 (4 reviews)
+Skipping Training Potty - already has 7 reviews
+Updated Training Potty rating to 4.0 (7 reviews)
+Skipping Toilet Seat - already has 4 reviews
+Updated Toilet Seat rating to 3.8 (4 reviews)
+Skipping Step Stool - already has 6 reviews
+Updated Step Stool rating to 4.0 (6 reviews)
+Skipping Training Pants - already has 6 reviews
+Updated Training Pants rating to 3.8 (6 reviews)
+Skipping Potty Book - already has 4 reviews
+Updated Potty Book rating to 3.8 (4 reviews)
+Skipping Reward Chart - already has 7 reviews
+Updated Reward Chart rating to 4.6 (7 reviews)
+Skipping Travel Potty - already has 6 reviews
+Updated Travel Potty rating to 4.2 (6 reviews)
+Skipping Potty Guard - already has 4 reviews
+Updated Potty Guard rating to 4.0 (4 reviews)
+Skipping Party Suit - already has 3 reviews
+Updated Party Suit rating to 3.7 (3 reviews)
+Skipping Formal Set - already has 3 reviews
+Updated Formal Set rating to 4.3 (3 reviews)
+Skipping Special Occasion Dress - already has 6 reviews
+Updated Special Occasion Dress rating to 3.5 (6 reviews)
+Skipping Tuxedo Set - already has 4 reviews
+Updated Tuxedo Set rating to 4.3 (4 reviews)
+Skipping Christening Gown - already has 5 reviews
+Updated Christening Gown rating to 3.8 (5 reviews)
+Skipping Wedding Outfit - already has 6 reviews
+Updated Wedding Outfit rating to 3.8 (6 reviews)
+Skipping Birthday Suit - already has 4 reviews
+Updated Birthday Suit rating to 3.5 (4 reviews)
+Skipping Holiday Outfit - already has 6 reviews
+Updated Holiday Outfit rating to 4.3 (6 reviews)
+Skipping Electric Pump - already has 4 reviews
+Updated Electric Pump rating to 3.8 (4 reviews)
+Skipping Manual Pump - already has 7 reviews
+Updated Manual Pump rating to 3.9 (7 reviews)
+Skipping Double Pump Set - already has 5 reviews
+Updated Double Pump Set rating to 4.6 (5 reviews)
+Skipping Pump Parts Kit - already has 6 reviews
+Updated Pump Parts Kit rating to 4.2 (6 reviews)
+Skipping Pump Bottles - already has 6 reviews
+Updated Pump Bottles rating to 4.0 (6 reviews)
+Skipping Storage Bags - already has 5 reviews
+Updated Storage Bags rating to 4.4 (5 reviews)
+Skipping Pump Cleaner - already has 5 reviews
+Updated Pump Cleaner rating to 3.6 (5 reviews)
+Skipping Pump Carry Bag - already has 7 reviews
+Updated Pump Carry Bag rating to 3.9 (7 reviews)
+Skipping Nursing Cover - already has 3 reviews
+Updated Nursing Cover rating to 4.3 (3 reviews)
+Skipping Nursing Pillow - already has 3 reviews
+Updated Nursing Pillow rating to 4.0 (3 reviews)
+Skipping Milk Storage Bags - already has 5 reviews
+Updated Milk Storage Bags rating to 4.2 (5 reviews)
+Skipping Nursing Pads - already has 7 reviews
+Updated Nursing Pads rating to 4.0 (7 reviews)
+Skipping Nipple Cream - already has 3 reviews
+Updated Nipple Cream rating to 5.0 (3 reviews)
+Skipping Feeding Timer - already has 4 reviews
+Updated Feeding Timer rating to 4.3 (4 reviews)
+Skipping Nursing Bra - already has 3 reviews
+Updated Nursing Bra rating to 3.3 (3 reviews)
+Skipping Lactation Supplements - already has 4 reviews
+Updated Lactation Supplements rating to 3.5 (4 reviews)
+Skipping Baby Wrap - already has 7 reviews
+Updated Baby Wrap rating to 3.6 (7 reviews)
+Skipping Structured Carrier - already has 3 reviews
+Updated Structured Carrier rating to 3.7 (3 reviews)
+Skipping Crib Sheet Set - already has 7 reviews
+Updated Crib Sheet Set rating to 3.9 (7 reviews)
+Skipping Baby Blanket - already has 5 reviews
+Updated Baby Blanket rating to 4.2 (5 reviews)
+Skipping Sleep Sack - already has 3 reviews
+Updated Sleep Sack rating to 3.3 (3 reviews)
+Skipping Swaddle Set - already has 3 reviews
+Updated Swaddle Set rating to 4.3 (3 reviews)
+Skipping Bedding Bundle - already has 6 reviews
+Updated Bedding Bundle rating to 3.7 (6 reviews)
+Skipping Mattress Protector - already has 6 reviews
+Updated Mattress Protector rating to 4.0 (6 reviews)
+Skipping Maternity Pads - already has 5 reviews
+Updated Maternity Pads rating to 4.0 (5 reviews)
+Skipping Postpartum Kit - already has 4 reviews
+Updated Postpartum Kit rating to 3.3 (4 reviews)
+Skipping Recovery Essentials - already has 5 reviews
+Updated Recovery Essentials rating to 3.6 (5 reviews)
+Skipping Care Package - already has 4 reviews
+Updated Care Package rating to 4.5 (4 reviews)
+Skipping Perineal Spray - already has 3 reviews
+Updated Perineal Spray rating to 5.0 (3 reviews)
+Skipping Sitz Bath Set - already has 3 reviews
+Updated Sitz Bath Set rating to 3.3 (3 reviews)
+Skipping Nursing Care Kit - already has 7 reviews
+Updated Nursing Care Kit rating to 4.0 (7 reviews)
+Skipping Comfort Cushion - already has 6 reviews
+Updated Comfort Cushion rating to 3.8 (6 reviews)
+Skipping Baby Nest - already has 6 reviews
+Updated Baby Nest rating to 4.2 (6 reviews)
+Skipping Portable Bassinet - already has 6 reviews
+Updated Portable Bassinet rating to 3.8 (6 reviews)
+Skipping Co-Sleeper - already has 5 reviews
+Updated Co-Sleeper rating to 4.4 (5 reviews)
+Skipping Travel Crib - already has 3 reviews
+Updated Travel Crib rating to 5.0 (3 reviews)
+Skipping Bedside Sleeper - already has 3 reviews
+Updated Bedside Sleeper rating to 4.3 (3 reviews)
+Skipping Moses Basket - already has 7 reviews
+Updated Moses Basket rating to 4.3 (7 reviews)
+Skipping Rocking Bassinet - already has 7 reviews
+Updated Rocking Bassinet rating to 4.0 (7 reviews)
+Skipping Foldable Crib - already has 5 reviews
+Updated Foldable Crib rating to 4.4 (5 reviews)
+Skipping Nursing Pillow - already has 6 reviews
+Updated Nursing Pillow rating to 4.0 (6 reviews)
+Skipping Pregnancy Pillow - already has 5 reviews
+Updated Pregnancy Pillow rating to 3.8 (5 reviews)
+Skipping Baby Head Support - already has 6 reviews
+Updated Baby Head Support rating to 4.2 (6 reviews)
+Skipping Travel Neck Pillow - already has 6 reviews
+Updated Travel Neck Pillow rating to 3.7 (6 reviews)
+Skipping Body Support Pillow - already has 3 reviews
+Updated Body Support Pillow rating to 4.3 (3 reviews)
+Skipping Reflux Wedge - already has 6 reviews
+Updated Reflux Wedge rating to 3.7 (6 reviews)
+Skipping Positioning Pillow - already has 5 reviews
+Updated Positioning Pillow rating to 3.8 (5 reviews)
+Skipping Memory Foam Pillow - already has 6 reviews
+Updated Memory Foam Pillow rating to 3.7 (6 reviews)
+Skipping Baby Swing - already has 5 reviews
+Updated Baby Swing rating to 3.6 (5 reviews)
+Skipping Bouncer Seat - already has 4 reviews
+Updated Bouncer Seat rating to 4.0 (4 reviews)
+Skipping Rocker Chair - already has 5 reviews
+Updated Rocker Chair rating to 4.4 (5 reviews)
+Skipping Electric Cradle - already has 3 reviews
+Updated Electric Cradle rating to 3.7 (3 reviews)
+Skipping Portable Swing - already has 7 reviews
+Updated Portable Swing rating to 3.9 (7 reviews)
+Skipping Musical Rocker - already has 3 reviews
+Updated Musical Rocker rating to 3.3 (3 reviews)
+Skipping Comfort Seat - already has 7 reviews
+Updated Comfort Seat rating to 3.9 (7 reviews)
+Skipping Auto Swing - already has 4 reviews
+Updated Auto Swing rating to 3.8 (4 reviews)
+Skipping Baby Blanket - already has 5 reviews
+Updated Baby Blanket rating to 3.8 (5 reviews)
+Skipping Swaddle Wrap - already has 5 reviews
+Updated Swaddle Wrap rating to 3.8 (5 reviews)
+Skipping Sleep Bag - already has 5 reviews
+Updated Sleep Bag rating to 4.2 (5 reviews)
+Skipping Thermal Suit - already has 3 reviews
+Updated Thermal Suit rating to 4.0 (3 reviews)
+Skipping Warming Pad - already has 7 reviews
+Updated Warming Pad rating to 3.9 (7 reviews)
+Skipping Winter Bundle - already has 5 reviews
+Updated Winter Bundle rating to 4.0 (5 reviews)
+Skipping Fleece Set - already has 6 reviews
+Updated Fleece Set rating to 3.7 (6 reviews)
+Skipping Warming Bottle - already has 5 reviews
+Updated Warming Bottle rating to 4.2 (5 reviews)
+Successfully linked all reviews!
+
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$ curl -X GET "http://localhost:8080/api/reviews/product/680e6e7071d895e0f53b642c?sort=newest&rating=all&page=1&limit=10"
+{"status":"error","message":"Cast to Number failed for value \"NaN\" (type number) at path \"rating\" for model \"Review\""}
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran

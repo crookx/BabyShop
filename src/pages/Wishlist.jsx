@@ -1,60 +1,53 @@
-import React, { useEffect, useState } from 'react';
-import { Container, Grid, Typography, CircularProgress } from '@mui/material';
-import axios from '../config/axios';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Container, Grid, Typography, Box, CircularProgress } from '@mui/material';
 import ProductCard from '../components/products/ProductCard';
-import { useNavigate } from 'react-router-dom';
+import { fetchWishlist } from '../store/slices/wishlistSlice';
 
 const Wishlist = () => {
-  const [wishlistItems, setWishlistItems] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
-  const token = localStorage.getItem('token');
+  const dispatch = useDispatch();
+  const { items, loading, error } = useSelector((state) => state.wishlist);
 
   useEffect(() => {
-    if (!token) {
-      navigate('/auth', { state: { returnTo: '/wishlist' } });
-      return;
-    }
-
-    const fetchWishlist = async () => {
+    const loadWishlist = async () => {
       try {
-        const response = await axios.get('/api/wishlist');
-        setWishlistItems(response.data.data.products || []);
+        await dispatch(fetchWishlist()).unwrap();
       } catch (error) {
-        console.error('Wishlist fetch error:', error);
-      } finally {
-        setLoading(false);
+        console.error('Error loading wishlist:', error);
       }
     };
-
-    fetchWishlist();
-  }, [navigate, token]);
+    loadWishlist();
+  }, [dispatch]);
 
   if (loading) {
     return (
-      <Container sx={{ display: 'flex', justifyContent: 'center', py: 4 }}>
+      <Box display="flex" justifyContent="center" alignItems="center" minHeight="60vh">
         <CircularProgress />
-      </Container>
+      </Box>
     );
   }
 
   return (
-    <Container>
-      <Typography variant="h4" sx={{ my: 4 }}>
-        My Wishlist ({wishlistItems.length})
+    <Container maxWidth="xl" sx={{ py: 4 }}>
+      <Typography variant="h4" sx={{ mb: 4 }}>
+        My Wishlist ({items.length} items)
       </Typography>
-      <Grid container spacing={3}>
-        {wishlistItems.map(product => (
-          <Grid item xs={12} sm={6} md={4} key={product._id}>
-            <ProductCard 
-              product={product}
-              onWishlistUpdate={() => setWishlistItems(prev => 
-                prev.filter(item => item._id !== product._id)
-              )}
-            />
-          </Grid>
-        ))}
-      </Grid>
+
+      {error ? (
+        <Typography color="error" sx={{ mb: 2 }}>
+          {error}
+        </Typography>
+      ) : items.length === 0 ? (
+        <Typography>Your wishlist is empty</Typography>
+      ) : (
+        <Grid container spacing={3}>
+          {items.map((product) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} key={product._id}>
+              <ProductCard product={product} />
+            </Grid>
+          ))}
+        </Grid>
+      )}
     </Container>
   );
 };

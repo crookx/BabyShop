@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { getTheme } from './theme/theme';
 import { NotificationProvider } from './context/NotificationContext';
+import NewAuthPage from 'pages/NewAuthPage';
 
 // Layout Components
 import Navbar from './components/layout/Navbar';
@@ -30,6 +31,7 @@ function App() {
         <CssBaseline />
         <Navbar />
         <Routes>
+          <Route path="/auth" element={<NewAuthPage />} />
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/product/:id" element={<ProductDetails />} />

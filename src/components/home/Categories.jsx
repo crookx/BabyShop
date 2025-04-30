@@ -1,50 +1,49 @@
 import React from 'react';
-import { Grid, Card, CardContent, CardMedia, Typography, Box } from '@mui/material';
-import { motion } from 'framer-motion';
+import { Grid, Card, CardContent, Typography, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-const Categories = ({ categories }) => {
+const Categories = ({ categories = [] }) => {
   const navigate = useNavigate();
+
+  const handleCategoryClick = (category) => {
+    navigate(`/shop?category=${encodeURIComponent(category.name.toLowerCase())}`);
+  };
+
+  if (!categories?.length) {
+    return null;
+  }
 
   return (
     <Grid container spacing={3}>
-      {categories.map((category) => (
-        <Grid item xs={6} sm={4} md={3} lg={2} key={category._id}>
+      {categories.map((category, index) => (
+        <Grid item xs={12} sm={6} md={4} lg={3} key={category?._id || index}>
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: index * 0.1 }}
+            whileHover={{ y: -5 }}
           >
             <Card 
-              onClick={() => navigate(`/categories/${category.slug}`)}
+              onClick={() => handleCategoryClick(category)}
               sx={{ 
                 cursor: 'pointer',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                borderRadius: 2,
-                boxShadow: 2
+                transition: 'transform 0.2s',
+                '&:hover': { transform: 'translateY(-5px)' }
               }}
             >
-              <CardMedia
+              <Box
                 component="img"
-                height="140"
-                image={category.image}
-                alt={category.name}
-                sx={{ objectFit: 'cover' }}
+                src={category?.image}
+                alt={category?.name}
+                sx={{
+                  width: '100%',
+                  height: 200,
+                  objectFit: 'cover'
+                }}
               />
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h6" component="div" noWrap>
-                  {category.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  display: '-webkit-box',
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: 'vertical',
-                }}>
-                  {category.description}
-                </Typography>
+              <CardContent>
+                <Typography variant="h6">{category?.name}</Typography>
               </CardContent>
             </Card>
           </motion.div>

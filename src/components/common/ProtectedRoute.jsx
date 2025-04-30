@@ -1,18 +1,43 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Box, CircularProgress } from '@mui/material';
 
 const ProtectedRoute = ({ children }) => {
   const location = useLocation();
-  const auth = useSelector(state => state.auth);
-  const token = localStorage.getItem('token');
+  const { user, loading } = useSelector(state => state.auth);
 
-  if (!token) {
-    console.log('[ProtectedRoute] No token found, redirecting to auth');
-    return <Navigate to="/auth" state={{ from: location.pathname }} replace />;
+  if (loading) {
+    return (
+      <Box 
+        sx={{ 
+          minHeight: 'calc(100vh - 128px)', // Account for navbar and footer
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          mt: 8 // Add top margin to account for navbar
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
   }
 
-  console.log('[ProtectedRoute] Token found, rendering protected content');
+  if (!user) {
+    // Make sure this matches your AuthPage route
+    return (
+      <Navigate 
+        to="/auth" 
+        state={{ 
+          from: location.pathname,
+          action: location.state?.action,
+          productId: location.state?.productId
+        }} 
+        replace 
+      />
+    );
+  }
+
   return children;
 };
 

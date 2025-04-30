@@ -14,8 +14,28 @@ const app = express();
 // Connect to database
 connectDB();
 
-// Middleware
-app.use(cors());
+// CORS configuration
+const ALLOWED_ORIGINS = [
+  'http://localhost:3000',
+  'https://baby-shop-mcqv.vercel.app',
+  'https://qaranbaby.com'
+];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    if (!origin || ALLOWED_ORIGINS.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH']
+}));
+
+// Handle preflight requests
+app.options('*', cors());
+
 app.use(express.json());
 
 // Routes
@@ -27,5 +47,6 @@ app.use('/api/wishlist', wishlistRoutes);
 // Error handler
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+// Force port 8080 for consistency
+const PORT = 8080;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

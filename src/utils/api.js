@@ -1,48 +1,108 @@
-import axios from 'axios';
-import { envConfig } from '../config/env.config';
+import axios from '../config/axios';
+import { API_CONFIG } from '../config/api';
 
-const api = axios.create({
-  baseURL: `${envConfig.API_URL}/api`,
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  },
-  credentials: 'include',
-  withCredentials: true
-});
-
-api.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
-
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      localStorage.removeItem('token');
-      window.location.href = '/login';
-    }
-    return Promise.reject(error);
+const validateResponse = (response) => {
+  if (!response?.data) {
+    throw new Error('Invalid response format');
   }
-);
-
-export const getProducts = () => api.get('/products');
-export const getProduct = (id) => api.get(`/products/${id}`);
-export const getCategories = () => api.get('/categories');
-export const getCategoryDetails = (slug) => api.get(`/categories/${slug}`);
-export const getCategoryProducts = (slug) => api.get(`/categories/${slug}/products`);
-
-export const productApi = {
-  getFeatured: () => api.get('/products/featured'),
-  getCategories: () => api.get('/products/categories'),
-  getSpecialOffers: () => api.get('/products/offers')
+  return response;
 };
 
-export default api;
+const handleApiError = (error) => {
+  if (error.message === 'Invalid response type: expected JSON') {
+    throw new Error('Server returned an invalid response format');
+  }
+  if (error.response?.status === 404) {
+    throw new Error('Product not found');
+  }
+  throw error;
+};
+
+const validateProductData = (data) => {
+  if (!data?._id || !data?.name || typeof data?.price !== 'number') {
+    throw new Error('Invalid product data structure');
+  }
+  return data;
+};
+
+export const productApi = {
+  getAll: async () => {
+    try {
+      const response = await axios.get(API_CONFIG.ENDPOINTS.PRODUCTS.BASE);
+      return validateResponse(response);
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+  
+  getById: async (id) => {
+    if (!id) throw new Error('Product ID is required');
+    try {
+      const response = await axios.get(`${API_CONFIG.ENDPOINTS.PRODUCTS.BASE}/${id}`);
+      return { data: validateProductData(response.data) };
+    } catch (error) {
+      if (error.message === 'Server returned non-JSON response') {
+        throw new Error('Server error: Please try again later');
+      }
+      throw error;
+    }
+  },
+  
+  getByCategory: async (categoryId) => {
+    try {
+      const response = await axios.get(API_CONFIG.ENDPOINTS.PRODUCTS.BY_CATEGORY(categoryId));
+      return validateResponse(response);
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+  
+  getFeatured: async () => {
+    try {
+      const response = await axios.get(API_CONFIG.ENDPOINTS.PRODUCTS.FEATURED);
+      return validateResponse(response);
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+  
+  getOffers: async () => {
+    try {
+      const response = await axios.get(API_CONFIG.ENDPOINTS.PRODUCTS.OFFERS);
+      return validateResponse(response);
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  }
+};
+
+export const categoryApi = {
+  getAll: async () => {
+    try {
+      const response = await axios.get(API_CONFIG.ENDPOINTS.CATEGORIES.BASE);
+      if (!response?.data) throw new Error('Invalid category response');
+      return response;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+  
+  getById: async (id) => {
+    try {
+      const response = await axios.get(`${API_CONFIG.ENDPOINTS.CATEGORIES.BASE}/${id}`);
+      if (!response?.data) throw new Error('Invalid category response');
+      return response;
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  },
+  
+  getProducts: async (categoryId) => {
+    try {
+      const response = await axios.get(`${API_CONFIG.ENDPOINTS.CATEGORIES.BASE}/${categoryId}/products`);
+      return validateResponse(response);
+    } catch (error) {
+      throw handleApiError(error);
+    }
+  }
+};

@@ -103,5 +103,12 @@ exports.removeFromCart = asyncHandler(async (req, res) => {
   );
 
   await cart.save();
-  res.json({ message: 'Item removed from cart' });
+  await cart.populate('items.product', 'name price image');
+
+  // Return consistent response format
+  res.json({
+    items: cart.items,
+    totalItems: cart.items.reduce((total, item) => total + item.quantity, 0),
+    totalAmount: cart.items.reduce((total, item) => total + (item.quantity * item.product.price), 0)
+  });
 });

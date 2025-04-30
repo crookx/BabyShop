@@ -134,7 +134,7 @@ const ageGroups = [
   '9-12 months', '12-18 months', '18-24 months', '2+ years'
 ];
 
-module.exports = {
+export {
   productTemplates,
   ageGroups
 };

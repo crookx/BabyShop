@@ -1,18 +1,29 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import { Box, Container, Typography, Grid } from '@mui/material';
 import ProductCard from './ProductCard';
-import { fetchProducts } from '../../store/slices/productSlice';
+import api from '../../utils/api';
 
 const NewArrivals = () => {
-  const dispatch = useDispatch();
-  const { items: products, loading } = useSelector(state => state.products);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(fetchProducts({ sort: 'newest', limit: 8 }));
-  }, [dispatch]);
+    const fetchFeaturedProducts = async () => {
+      try {
+        setLoading(true);
+        const response = await api.get('/products/featured');
+        setProducts(response.data.data.products || []);
+      } catch (error) {
+        console.error('Error fetching featured products:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  if (loading) return <div>Loading...</div>;
+    fetchFeaturedProducts();
+  }, []);
+
+  if (loading) return <Box sx={{ py: 4 }}><Typography>Loading...</Typography></Box>;
 
   return (
     <Container maxWidth="xl">

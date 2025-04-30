@@ -60,11 +60,17 @@ const getTheme = (mode = 'light') => createTheme({
     fontFamily: tokens.typography.fontFamily,
     h1: {
       fontWeight: tokens.typography.fontWeights.bold,
-      fontSize: '2.5rem'
+      fontSize: '2.5rem',
+      '@media (min-width: 600px)': {
+        fontSize: '3.5rem',
+      },
     },
     h2: {
       fontWeight: tokens.typography.fontWeights.bold,
-      fontSize: '2rem'
+      fontSize: '2rem',
+      '@media (min-width: 600px)': {
+        fontSize: '3rem',
+      },
     }
   },
   shape: {
@@ -83,7 +89,8 @@ const getTheme = (mode = 'light') => createTheme({
       styleOverrides: {
         root: {
           backgroundColor: '#FFFFFF',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+          borderRadius: 8,
         }
       }
     },
@@ -93,8 +100,29 @@ const getTheme = (mode = 'light') => createTheme({
           backgroundColor: '#FFFFFF'
         }
       }
-    }
-  }
+    },
+    MuiContainer: {
+      styleOverrides: {
+        root: {
+          paddingLeft: 16,
+          paddingRight: 16,
+          '@media (min-width: 600px)': {
+            paddingLeft: 24,
+            paddingRight: 24,
+          },
+        },
+      },
+    },
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
 });
 
 export { tokens, getTheme };

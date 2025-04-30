@@ -1,47 +1,65 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { Box, Container, Grid, Typography, CircularProgress } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategoryDetails, fetchCategoryProducts } from '../../store/slices/categorySlice';
 import ProductCard from '../products/ProductCard';
 import EmptyState from '../common/EmptyState';
 import { ShoppingBag } from '@mui/icons-material';
+import LoadingOverlay from '../common/LoadingOverlay';
+import CategoryLanding from '../categories/CategoryLanding';
+import FilterSidebar from '../filters/FilterSidebar';
+import CategoryProducts from '../categories/CategoryProducts';
 
 const CategoryDetail = () => {
   const { slug } = useParams();
+  const [searchParams] = useSearchParams();
+  const [filters, setFilters] = useState({
+    price: [0, 1000],
+    sort: searchParams.get('sort') || 'newest',
+    page: parseInt(searchParams.get('page')) || 1
+  });
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
   const dispatch = useDispatch();
-  
-  // Fixed selector to properly access state
-  const { currentCategory, products, loading, error } = useSelector((state) => ({
+
+  const { currentCategory, products, loading, error, categories } = useSelector((state) => ({
     currentCategory: state.categories?.currentCategory || null,
     products: state.categories?.products || [],
     loading: state.categories?.loading || false,
-    error: state.categories?.error || null
+    error: state.categories?.error || null,
+    categories: state.categories?.list || []
   }));
 
   useEffect(() => {
     const loadCategory = async () => {
       try {
-        console.log('Fetching category:', slug);
+        setIsInitialLoad(true);
         const result = await dispatch(fetchCategoryDetails(slug)).unwrap();
-        console.log('Category data:', result);
         if (result?._id) {
-          console.log('Fetching products for category:', result._id);
-          dispatch(fetchCategoryProducts(result._id));
+          await dispatch(fetchCategoryProducts({ 
+            categoryId: result._id,
+            filters,
+            page: filters.page
+          })).unwrap();
         }
       } catch (error) {
         console.error('Failed to load category:', error);
+      } finally {
+        setIsInitialLoad(false);
       }
     };
     loadCategory();
-  }, [dispatch, slug]);
+  }, [dispatch, slug, filters]);
 
-  if (loading) {
-    return (
-      <Box display="flex" justifyContent="center" p={4}>
-        <CircularProgress />
-      </Box>
-    );
+  const handleFilterChange = (newFilters) => {
+    setFilters(prev => ({
+      ...prev,
+      ...newFilters
+    }));
+  };
+
+  if (isInitialLoad) {
+    return <LoadingOverlay />;
   }
 
   if (!currentCategory) {
@@ -56,43 +74,26 @@ const CategoryDetail = () => {
 
   return (
     <Box>
-      <Box
-        sx={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${currentCategory.image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          height: 300,
-          display: 'flex',
-          alignItems: 'center',
-          mb: 4
-        }}
-      >
-        <Container maxWidth="xl">
-          <Typography variant="h2" component="h1" color="white" gutterBottom>
-            {currentCategory.name}
-          </Typography>
-          <Typography variant="h5" color="white">
-            {currentCategory.description}
-          </Typography>
-        </Container>
-      </Box>
-
+      <CategoryLanding category={currentCategory} />
       <Container maxWidth="xl">
-        {products.length > 0 ? (
-          <Grid container spacing={3}>
-            {products.map((product) => (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={product._id}>
-                <ProductCard product={product} />
-              </Grid>
-            ))}
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={3}>
+            <FilterSidebar 
+              filters={filters} 
+              onFilterChange={handleFilterChange}
+              categories={categories}
+            />
           </Grid>
-        ) : (
-          <EmptyState
-            icon={<ShoppingBag sx={{ fontSize: 64 }} />}
-            title="No Products Found"
-            description="There are no products in this category yet."
-          />
-        )}
+          <Grid item xs={12} md={9}>
+            <CategoryProducts 
+              products={products}
+              loading={loading}
+              error={error}
+              page={filters.page}
+              onPageChange={(newPage) => handleFilterChange({ page: newPage })}
+            />
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   );

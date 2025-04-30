@@ -1,47 +1,52 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { getTheme } from './theme/theme';
-import { NotificationProvider } from './context/NotificationContext';
-import NotificationManager from './components/common/NotificationManager';
+import { ToastContainer } from 'react-toastify';
+import MainLayout from './layouts/MainLayout';
+import NewAuthPage from './pages/NewAuthPage';
+import LoadingScreen from './components/common/LoadingScreen';
+import 'react-toastify/dist/ReactToastify.css';
 
-// Layout
-import Layout from './components/layout/Layout';
-
-// Pages
-import Home from './pages/Home';
-import Shop from './pages/Shop';
-import Categories from './pages/Categories';
-import ProductDetails from './pages/ProductDetails';
-import Cart from './pages/Cart';
-import Wishlist from './pages/Wishlist';
-import Profile from './pages/Profile';
-import AuthPage from './pages/AuthPage';
-
-const theme = getTheme();
+const Home = React.lazy(() => import('./pages/Home'));
+const Products = React.lazy(() => import('./pages/Products'));
+const ProductDetail = React.lazy(() => import('./pages/ProductDetail'));
+const Cart = React.lazy(() => import('./pages/Cart'));
+const Wishlist = React.lazy(() => import('./pages/Wishlist'));
 
 function App() {
   return (
-    <NotificationProvider>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <NotificationManager />
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/products" element={<Shop />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/wishlist" element={<Wishlist />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/auth" element={<AuthPage />} />
-          </Route>
-        </Routes>
-      </ThemeProvider>
-    </NotificationProvider>
+    <>
+      <ToastContainer />
+      <Routes>
+        <Route path="/auth" element={<NewAuthPage />} />
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={
+            <Suspense fallback={<LoadingScreen />}>
+              <Home />
+            </Suspense>
+          } />
+          <Route path="products" element={
+            <Suspense fallback={<LoadingScreen />}>
+              <Products />
+            </Suspense>
+          } />
+          <Route path="product/:id" element={
+            <Suspense fallback={<LoadingScreen />}>
+              <ProductDetail />
+            </Suspense>
+          } />
+          <Route path="cart" element={
+            <Suspense fallback={<LoadingScreen />}>
+              <Cart />
+            </Suspense>
+          } />
+          <Route path="wishlist" element={
+            <Suspense fallback={<LoadingScreen />}>
+              <Wishlist />
+            </Suspense>
+          } />
+        </Route>
+      </Routes>
+    </>
   );
 }
 

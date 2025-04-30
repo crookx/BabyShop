@@ -1,47 +1,84 @@
 import React from 'react';
-import { Box, Container, Typography, Button } from '@mui/material';
+import { Box, Typography, Button, Container } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { useNavigate } from 'react-router-dom';
-import { getBannerActions } from '../../config/routes';
+import { styled } from '@mui/material/styles';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const HeroBanner = () => {
-  const navigate = useNavigate();
-  const bannerData = getBannerActions();
+const BannerSection = styled(Box)(({ theme }) => ({
+  position: 'relative',
+  height: '70vh',
+  minHeight: 500,
+  backgroundColor: theme.palette.grey[100],
+  overflow: 'hidden',
 
-  const handleAction = (link) => {
-    navigate(link);
-  };
+  '& .swiper': {
+    height: '100%',
+  },
+
+  '& .swiper-pagination-bullet': {
+    width: 12,
+    height: 12,
+    backgroundColor: theme.palette.common.white,
+    opacity: 0.7,
+    '&-active': {
+      opacity: 1,
+    },
+  },
+
+  '& .swiper-button-prev, & .swiper-button-next': {
+    color: theme.palette.common.white,
+    '&::after': {
+      fontSize: '24px',
+    },
+  },
+}));
+
+const HeroBanner = () => {
+  const banners = [
+    {
+      id: 1,
+      title: "Summer Collection 2024",
+      subtitle: "Adorable styles for your little ones",
+      buttonText: "Shop Now",
+      image: "/images/baby-clothing.jpg",
+      link: "/shop?category=summer",
+    },
+    {
+      id: 2,
+      title: "Baby Essentials",
+      subtitle: "Everything you need for your baby",
+      buttonText: "Explore",
+      image: "/images/bath-care.jpg",
+      link: "/shop?category=essentials",
+    },
+    {
+      id: 3,
+      title: "Special Offers",
+      subtitle: "Up to 50% off on selected items",
+      buttonText: "View Deals",
+      image: "/images/baby-toys.jpg",
+      link: "/shop?category=offers",
+    },
+  ];
 
   return (
-    <Box sx={{ 
-      backgroundColor: 'primary.light',
-      pt: 4,
-      pb: 6,
-      position: 'relative'
-    }}>
-      <Container maxWidth="xl">
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={0}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 5000 }}
-        >
-          {bannerData.map((slide, index) => (
-            <SwiperSlide key={index}>
-              <Box sx={{
-                height: '60vh',
+    <BannerSection>
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        navigation
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        loop
+      >
+        {banners.map((banner) => (
+          <SwiperSlide key={banner.id}>
+            <Box
+              sx={{
+                height: '100%',
                 position: 'relative',
-                display: 'flex',
-                alignItems: 'center',
-                backgroundImage: `url(${slide.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
                 '&::before': {
                   content: '""',
                   position: 'absolute',
@@ -49,62 +86,71 @@ const HeroBanner = () => {
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  backgroundColor: 'rgba(0,0,0,0.4)'
-                }
-              }}>
-                <Box sx={{ 
-                  position: 'relative', 
-                  color: 'white', 
-                  p: 4, 
-                  maxWidth: '600px',
-                  zIndex: 2
-                }}>
-                  <Typography 
-                    variant="h2" 
-                    component="h1" 
-                    gutterBottom
-                    sx={{
-                      fontSize: { xs: '2rem', md: '3.75rem' },
-                      fontWeight: 'bold'
-                    }}
-                  >
-                    {slide.title}
-                  </Typography>
-                  <Typography 
-                    variant="h5" 
-                    gutterBottom
-                    sx={{
-                      fontSize: { xs: '1.25rem', md: '1.5rem' },
-                      mb: 4
-                    }}
-                  >
-                    {slide.subtitle}
-                  </Typography>
-                  <Button 
-                    variant={slide.cta.variant}
-                    color={slide.cta.color}
-                    size="large"
-                    onClick={() => handleAction(slide.cta.link)}
-                    sx={{
-                      px: 4,
-                      py: 1.5,
-                      fontSize: '1.1rem',
-                      '&:hover': {
-                        transform: 'translateY(-2px)',
-                        boxShadow: 2
-                      },
-                      transition: 'all 0.3s ease'
-                    }}
-                  >
-                    {slide.cta.text}
-                  </Button>
-                </Box>
-              </Box>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </Container>
-    </Box>
+                  backgroundColor: 'rgba(0,0,0,0.3)',
+                  zIndex: 1,
+                },
+              }}
+            >
+              <Box
+                component="img"
+                src={banner.image}
+                alt={banner.title}
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                }}
+              />
+              <Container
+                sx={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  zIndex: 2,
+                  color: 'white',
+                  textAlign: 'center',
+                }}
+              >
+                <Typography
+                  variant="h2"
+                  component="h1"
+                  sx={{
+                    fontWeight: 700,
+                    mb: 2,
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+                  }}
+                >
+                  {banner.title}
+                </Typography>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    mb: 4,
+                    textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+                  }}
+                >
+                  {banner.subtitle}
+                </Typography>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  href={banner.link}
+                  sx={{
+                    px: 4,
+                    py: 1.5,
+                    fontSize: '1.1rem',
+                  }}
+                >
+                  {banner.buttonText}
+                </Button>
+              </Container>
+            </Box>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </BannerSection>
   );
 };
 

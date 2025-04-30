@@ -1,17 +1,15 @@
-import React, { useState, memo, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { AppBar, Box, Toolbar, IconButton, Badge, Button, Container, Avatar } from '@mui/material';
+import React, { useState, useEffect, memo } from 'react';
+import { AppBar, Box, Toolbar, IconButton, Badge, Container, Avatar } from '@mui/material';
 import { motion } from 'framer-motion';
-import { ShoppingCart, Search, Menu } from '@mui/icons-material';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { ShoppingCart, Search, Menu, Favorite } from '@mui/icons-material';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
+import { useSelector, useDispatch } from 'react-redux';
 import MobileDrawer from './MobileDrawer';
 import SearchDrawer from '../search/SearchDrawer';
-import { useTheme } from '@mui/material/styles';
-import { useSelector, useDispatch } from 'react-redux';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { showNotification } from '../../store/slices/uiSlice';
-import { fetchCart } from '../../store/slices/cartSlice';
+import CartDrawer from '../cart/CartDrawer';
+import WishlistDrawer from '../wishlist/WishlistDrawer';
+import { fetchCartItems } from '../../store/slices/cartSlice';
 import { fetchWishlist } from '../../store/slices/wishlistSlice';
 
 const StyledAppBar = styled(AppBar)`
@@ -26,108 +24,97 @@ const StyledAppBar = styled(AppBar)`
   z-index: 1200;
 `;
 
-const NavButton = styled(Button)`
-  margin: 0 8px;
-  position: relative;
-  color: #333333 !important;
-  font-weight: 600;
-  &:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 6px;
-    left: 50%;
-    background-color: ${props => props.theme.palette.primary.main};
-    transition: all 0.3s ease;
-  }
-  &:hover:after {
-    width: 80%;
-    left: 10%;
-  }
-`;
-
 const IconContainer = styled(motion.div)`
   display: flex;
   align-items: center;
   gap: 8px;
 `;
 
-const Navbar = ({ onCartClick }) => {
-  const theme = useTheme();
-  const dispatch = useDispatch();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
+const BadgeAnimation = styled(Badge)`
+  .MuiBadge-badge {
+    transition: all 0.3s ease;
+    transform-origin: center;
+    &.new-item {
+      animation: popIn 0.5s ease-out;
+    }
+  }
+
+  @keyframes popIn {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+`;
+
+const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const auth = useSelector(state => state.auth) || { isAuthenticated: false };
-  const { isAuthenticated } = auth;
-  const token = localStorage.getItem('token');
-  
-  const { items: cartItems } = useSelector(state => state.cart);
-  const { items: wishlistItems } = useSelector(state => state.wishlist);
+  const dispatch = useDispatch();
+  const [cartOpen, setCartOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [wishlistOpen, setWishlistOpen] = useState(false);
+
+  const { user } = useSelector(state => state.auth);
+  const { items: cartItems = [] } = useSelector(state => state.cart);
+  const { items: wishlistItems = [] } = useSelector(state => state.wishlist);
 
   useEffect(() => {
-    if (isAuthenticated) {
-      dispatch(fetchCart());
+    if (user) {
+      dispatch(fetchCartItems());
       dispatch(fetchWishlist());
     }
-  }, [dispatch, isAuthenticated]);
+  }, [dispatch, user]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const cartItemsCount = Array.isArray(cartItems) ? cartItems.length : 0;
+  const wishlistItemsCount = Array.isArray(wishlistItems) ? wishlistItems.length : 0;
 
-  const handleProtectedNavigation = (path, message) => {
-    if (!token) {
+  const handleAuthCheck = () => {
+    if (!user) {
       navigate('/auth', { 
-        state: { from: path },
-        replace: true 
+        state: { 
+          from: location.pathname,
+          action: 'auth'
+        }
       });
-      dispatch(showNotification({
-        message,
-        type: 'info'
-      }));
+      return true;
+    }
+    return false;
+  };
+
+  const handleUserClick = () => {
+    if (handleAuthCheck()) return;
+    // handle user menu open
+  };
+
+  const handleCartClick = () => {
+    if (!user) {
+      navigate('/auth', { 
+        state: { 
+          from: location.pathname,
+          action: 'cart'
+        }
+      });
       return;
     }
-
-    // For authenticated users, navigate directly
-    if (path === '/cart') {
-      onCartClick?.();
-    } else {
-      navigate(path, { replace: true });
-    }
+    setCartOpen(true);
   };
 
-  const handleCartClick = (e) => {
-    e?.preventDefault();
-    handleProtectedNavigation('/cart', 'Please login to access your cart');
-  };
-
-  const handleWishlistClick = (e) => {
-    e?.preventDefault();
-    if (!token) {
+  const handleWishlistClick = () => {
+    if (!user) {
       navigate('/auth', { 
-        state: { from: '/wishlist' },
-        replace: true 
+        state: { 
+          from: location.pathname,
+          action: 'wishlist'
+        }
       });
-      dispatch(showNotification({
-        message: 'Please login to access your wishlist',
-        type: 'info'
-      }));
       return;
     }
-    navigate('/wishlist');
+    setWishlistOpen(true);
   };
 
-  const handleProfileClick = () => {
-    handleProtectedNavigation('/profile', 'Please login to access your profile');
+  const handleMobileMenuClick = () => {
+    setMobileOpen(true);
   };
 
   return (
@@ -144,7 +131,7 @@ const Navbar = ({ onCartClick }) => {
         <Container maxWidth="xl">
           <Toolbar sx={{ 
             justifyContent: 'space-between', 
-            height: { xs: 56, sm: 64, md: isScrolled ? 70 : 80 },
+            height: { xs: 56, sm: 64, md: 70 },
             px: { xs: 1, md: 2 }
           }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -156,7 +143,7 @@ const Navbar = ({ onCartClick }) => {
                   '&:hover': { transform: 'rotate(180deg)' },
                   transition: 'transform 0.3s ease'
                 }}
-                onClick={() => setMobileOpen(true)}
+                onClick={handleMobileMenuClick}
               >
                 <Menu />
               </IconButton>
@@ -169,21 +156,10 @@ const Navbar = ({ onCartClick }) => {
                 <img 
                   src="/qaran.png" 
                   alt="Qaran Baby Shop" 
-                  height={isScrolled ? "80" : "100"} 
+                  height="80" 
                   style={{ transition: 'height 0.3s ease' }}
                 />
               </motion.div>
-            </Box>
-
-            <Box sx={{ 
-              display: { xs: 'none', md: 'flex' },
-              transform: isScrolled ? 'translateY(0)' : 'translateY(4px)',
-              transition: 'transform 0.3s ease'
-            }}>
-              <NavButton component={Link} to="/" color="inherit">Home</NavButton>
-              <NavButton component={Link} to="/products" color="inherit">Products</NavButton>
-              <NavButton component={Link} to="/categories" color="inherit">Categories</NavButton>
-              <NavButton component={Link} to="/sale" color="inherit">Sale</NavButton>
             </Box>
 
             <IconContainer
@@ -198,57 +174,64 @@ const Navbar = ({ onCartClick }) => {
               >
                 <Search />
               </IconButton>
-              <IconButton 
-                color="inherit" 
-                onClick={handleCartClick}
-                sx={{ '&:hover': { transform: 'scale(1.1)' } }}
-              >
-                <Badge 
-                  badgeContent={cartItems?.length || 0} 
-                  color="primary"
-                  sx={{
-                    '& .MuiBadge-badge': {
-                      animation: 'pulse 1.5s infinite',
-                      '@keyframes pulse': {
-                        '0%': { transform: 'scale(1)' },
-                        '50%': { transform: 'scale(1.1)' },
-                        '100%': { transform: 'scale(1)' },
-                      },
-                    },
+              <motion.div whileHover={{ scale: 1.1 }}>
+                <IconButton 
+                  color={wishlistOpen ? 'primary' : 'default'}
+                  onClick={handleWishlistClick}
+                  sx={{ 
+                    position: 'relative',
+                    '&:hover': { color: 'primary.main' },
+                    transition: 'all 0.2s'
                   }}
                 >
-                  <ShoppingCart />
-                </Badge>
-              </IconButton>
-              <IconButton 
-                color="inherit" 
-                onClick={handleWishlistClick}
-                sx={{ '&:hover': { transform: 'scale(1.1)' } }}
-              >
-                <Badge 
-                  badgeContent={wishlistItems?.length || 0} 
-                  color="primary"
-                  sx={{
-                    '& .MuiBadge-badge': {
-                      animation: 'pulse 1.5s infinite',
-                      '@keyframes pulse': {
-                        '0%': { transform: 'scale(1)' },
-                        '50%': { transform: 'scale(1.1)' },
-                        '100%': { transform: 'scale(1)' },
-                      },
-                    },
+                  <BadgeAnimation 
+                    badgeContent={wishlistItemsCount}
+                    color="primary"
+                    max={99}
+                    sx={{
+                      '& .MuiBadge-badge': {
+                        background: theme => theme.palette.error.main,
+                        color: 'white',
+                      }
+                    }}
+                  >
+                    <Favorite />
+                  </BadgeAnimation>
+                </IconButton>
+              </motion.div>
+
+              <motion.div whileHover={{ scale: 1.1 }}>
+                <IconButton 
+                  color={cartOpen ? 'primary' : 'default'}
+                  onClick={handleCartClick}
+                  sx={{ 
+                    position: 'relative',
+                    '&:hover': { color: 'primary.main' },
+                    transition: 'all 0.2s'
                   }}
                 >
-                  <FavoriteIcon />
-                </Badge>
-              </IconButton>
+                  <BadgeAnimation 
+                    badgeContent={cartItemsCount}
+                    color="primary"
+                    max={99}
+                    sx={{
+                      '& .MuiBadge-badge': {
+                        background: theme => theme.palette.primary.main,
+                        color: 'white',
+                      }
+                    }}
+                  >
+                    <ShoppingCart />
+                  </BadgeAnimation>
+                </IconButton>
+              </motion.div>
               <motion.div 
                 whileHover={{ scale: 1.1 }} 
                 whileTap={{ scale: 0.95 }}
               >
                 <IconButton 
                   color="inherit"
-                  onClick={handleProfileClick}
+                  onClick={handleUserClick}
                   sx={{ 
                     ml: 1,
                     border: '2px solid',
@@ -262,7 +245,6 @@ const Navbar = ({ onCartClick }) => {
                 >
                   <Avatar 
                     sx={{ width: 32, height: 32 }}
-                    src={isAuthenticated ? '/images/user-avatar.png' : undefined}
                   />
                 </IconButton>
               </motion.div>
@@ -270,15 +252,12 @@ const Navbar = ({ onCartClick }) => {
           </Toolbar>
         </Container>
       </AppBar>
+      <CartDrawer isOpen={cartOpen} onClose={() => setCartOpen(false)} />
       <MobileDrawer open={mobileOpen} onClose={() => setMobileOpen(false)} />
       <SearchDrawer open={searchOpen} onClose={() => setSearchOpen(false)} />
+      <WishlistDrawer open={wishlistOpen} onClose={() => setWishlistOpen(false)} />
     </>
   );
-};
-
-Navbar.propTypes = {
-  onCartClick: PropTypes.func,
-  onAuthClick: PropTypes.func
 };
 
 export default memo(Navbar);

@@ -1,43 +1,52 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { api } from './services/api';
+import { productApi } from './apis/productApi';
+import { reviewApi } from './apis/reviewApi';
 import cartReducer from './slices/cartSlice';
-import authReducer from './slices/authSlice';
-import productReducer from './slices/productSlice';  // Update import path
-import uiReducer from './slices/uiSlice';
 import wishlistReducer from './slices/wishlistSlice';
+import compareReducer from './slices/compareSlice';
+import userReducer from './slices/userSlice';
+import authReducer from './slices/authSlice';
 import categoryReducer from './slices/categorySlice';
-import notificationReducer from './slices/notificationSlice';
+import productReducer from './slices/productSlice';
+import productDetailReducer from './slices/productDetailSlice';
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['auth', 'cart', 'categories'] // Add categories to whitelist
+  whitelist: ['auth', 'cart', 'wishlist']
 };
 
-// Create persisted reducers
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);
-const persistedCategoryReducer = persistReducer(persistConfig, categoryReducer);
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
-    auth: persistedAuthReducer,
+    [productApi.reducerPath]: productApi.reducer,
+    [reviewApi.reducerPath]: reviewApi.reducer,
     cart: cartReducer,
-    products: productReducer, // Updated product reducer import
-    ui: uiReducer,
     wishlist: wishlistReducer,
-    categories: persistedCategoryReducer, // Use persisted category reducer
-    notification: notificationReducer,
-    [api.reducerPath]: api.reducer
+    compare: compareReducer,
+    user: userReducer,
+    auth: persistedAuthReducer,
+    categories: categoryReducer,
+    products: productReducer,
+    productDetail: productDetailReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE']
       }
-    }).concat(api.middleware),
-  devTools: true
+    }).concat([
+      productApi.middleware,
+      reviewApi.middleware
+    ]),
+  devTools: process.env.NODE_ENV !== 'production'
 });
 
+setupListeners(store.dispatch);
+
 export const persistor = persistStore(store);
+export default store;

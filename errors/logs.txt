@@ -1,0 +1,1113 @@
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$ node server/scripts/checkProductDetails.js
+Connecting to MongoDB...
+(node:15228) [DEP0040] DeprecationWarning: The `punycode` module is depr
+ecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was create
+d)
+
+� Featured Products:
+- Sleep Suit (680e6e7071d895e0f53b642e)
+  Category: Clothing
+- Infant Sweater (680e6e7071d895e0f53b6430)
+  Category: Clothing
+- Baby Bottle (680e6e7071d895e0f53b6436)
+  Category: Feeding
+- Feeding Set (680e6e7071d895e0f53b6439)
+  Category: Feeding
+- Sippy Cup (680e6e7071d895e0f53b643a)
+  Category: Feeding
+- High Chair (680e6e7071d895e0f53b643b)
+  Category: Feeding
+- Changing Mat (680e6e7071d895e0f53b643f)
+  Category: Clothing
+- Diaper Pail (680e6e7071d895e0f53b6443)
+  Category: Clothing
+- Bath Tub (680e6e7071d895e0f53b6448)
+  Category: Clothing
+- Baby Soap (680e6e7071d895e0f53b644c)
+  Category: Clothing
+- Nursery Storage (680e6e7071d895e0f53b6450)
+  Category: Nursery
+- Play Mat (680e6e7071d895e0f53b6458)
+  Category: Toys & Entertainment
+- Learning Cube (680e6e7071d895e0f53b645d)
+  Category: Toys & Entertainment
+- Safety Locks (680e6e7071d895e0f53b6461)
+  Category: Clothing
+- Monitor Camera (680e6e7071d895e0f53b6462)
+  Category: Clothing
+- Diaper Backpack (680e6e7071d895e0f53b646a)
+  Category: Clothing
+- Travel Bottle Set (680e6e7071d895e0f53b646b)
+  Category: Clothing
+- Reward Chart (680e6e7071d895e0f53b6473)
+  Category: Clothing
+- Pump Bottles (680e6e7071d895e0f53b6482)
+  Category: Clothing
+- Nursing Pillow (680e6e7071d895e0f53b6487)
+  Category: Clothing
+- Nipple Cream (680e6e7071d895e0f53b648a)
+  Category: Clothing
+- Crib Sheet Set (680e6e7071d895e0f53b6490)
+  Category: Clothing
+- Mattress Protector (680e6e7071d895e0f53b6495)
+  Category: Clothing
+- Postpartum Kit (680e6e7071d895e0f53b6497)
+  Category: Clothing
+- Comfort Cushion (680e6e7071d895e0f53b649d)
+  Category: Clothing
+- Travel Neck Pillow (680e6e7071d895e0f53b64a9)
+  Category: Clothing
+- Auto Swing (680e6e7071d895e0f53b64b5)
+  Category: Clothing
+- Sleep Bag (680e6e7071d895e0f53b64b8)
+  Category: Clothing
+
+� Product Details:
+ID: new ObjectId("680e6e7071d895e0f53b642e")
+Name: Sleep Suit
+Category: Clothing
+Price: 18.75
+Stock: 1574
+Rating: 4.2
+Review Count: 6
+Featured: true
+Error: MissingSchemaError: Schema hasn't been registered for model "User
+".
+Use mongoose.model(name, schema)
+    at Connection.model (C:\Qaran\server\node_modules\mongoose\lib\conne
+ction.js:1136:13)
+    at _getModelFromConn (C:\Qaran\server\node_modules\mongoose\lib\help
+ers\populate\getModelsMapForPopulate.js:585:15)
+    at addModelNamesToMap (C:\Qaran\server\node_modules\mongoose\lib\hel
+pers\populate\getModelsMapForPopulate.js:512:17)
+    at getModelsMapForPopulate (C:\Qaran\server\node_modules\mongoose\li
+b\helpers\populate\getModelsMapForPopulate.js:201:7)
+    at populate (C:\Qaran\server\node_modules\mongoose\lib\model.js:4394
+:21)
+    at _populate (C:\Qaran\server\node_modules\mongoose\lib\model.js:435
+4:5)
+    at C:\Qaran\server\node_modules\mongoose\lib\model.js:4326:5
+    at new Promise (<anonymous>)
+    at Function.populate (C:\Qaran\server\node_modules\mongoose\lib\mode
+l.js:4325:10)
+    at model.Query._find (C:\Qaran\server\node_modules\mongoose\lib\quer
+y.js:2320:20)
+
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$ node server/scripts/checkProductDetails.js
+Connecting to MongoDB...
+(node:15124) [DEP0040] DeprecationWarning: The `punycode` module is depr
+ecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was create
+d)
+
+� Featured Products:
+- Sleep Suit (680e6e7071d895e0f53b642e)
+  Category: Clothing
+- Infant Sweater (680e6e7071d895e0f53b6430)
+  Category: Clothing
+- Baby Bottle (680e6e7071d895e0f53b6436)
+  Category: Feeding
+- Feeding Set (680e6e7071d895e0f53b6439)
+  Category: Feeding
+- Sippy Cup (680e6e7071d895e0f53b643a)
+  Category: Feeding
+- High Chair (680e6e7071d895e0f53b643b)
+  Category: Feeding
+- Changing Mat (680e6e7071d895e0f53b643f)
+  Category: Clothing
+- Diaper Pail (680e6e7071d895e0f53b6443)
+  Category: Clothing
+- Bath Tub (680e6e7071d895e0f53b6448)
+  Category: Clothing
+- Baby Soap (680e6e7071d895e0f53b644c)
+  Category: Clothing
+- Nursery Storage (680e6e7071d895e0f53b6450)
+  Category: Nursery
+- Play Mat (680e6e7071d895e0f53b6458)
+  Category: Toys & Entertainment
+- Learning Cube (680e6e7071d895e0f53b645d)
+  Category: Toys & Entertainment
+- Safety Locks (680e6e7071d895e0f53b6461)
+  Category: Clothing
+- Monitor Camera (680e6e7071d895e0f53b6462)
+  Category: Clothing
+- Diaper Backpack (680e6e7071d895e0f53b646a)
+  Category: Clothing
+- Travel Bottle Set (680e6e7071d895e0f53b646b)
+  Category: Clothing
+- Reward Chart (680e6e7071d895e0f53b6473)
+  Category: Clothing
+- Pump Bottles (680e6e7071d895e0f53b6482)
+  Category: Clothing
+- Nursing Pillow (680e6e7071d895e0f53b6487)
+  Category: Clothing
+- Nipple Cream (680e6e7071d895e0f53b648a)
+  Category: Clothing
+- Crib Sheet Set (680e6e7071d895e0f53b6490)
+  Category: Clothing
+- Mattress Protector (680e6e7071d895e0f53b6495)
+  Category: Clothing
+- Postpartum Kit (680e6e7071d895e0f53b6497)
+  Category: Clothing
+- Comfort Cushion (680e6e7071d895e0f53b649d)
+  Category: Clothing
+- Travel Neck Pillow (680e6e7071d895e0f53b64a9)
+  Category: Clothing
+- Auto Swing (680e6e7071d895e0f53b64b5)
+  Category: Clothing
+- Sleep Bag (680e6e7071d895e0f53b64b8)
+  Category: Clothing
+
+� Product Details:
+ID: new ObjectId("680e6e7071d895e0f53b642e")
+Name: Sleep Suit
+Category: Clothing
+Price: 18.75
+Stock: 1574
+Rating: 4.2
+Review Count: 6
+Featured: true
+
+� Recent Reviews:
+- Rating: 4, By: Anonymous
+  Comment: Great value for money, would buy again.
+- Rating: 4, By: Anonymous
+  Comment: Really pleased with the quality.
+- Rating: 5, By: Anonymous
+  Comment: Absolutely love this! Perfect for our baby.
+- Rating: 5, By: Anonymous
+  Comment: Outstanding quality, highly recommend!
+- Rating: 3, By: Anonymous
+  Comment: Does the job but could be better.
+
+❓ Recent Questions:
+- From: Anonymous
+  Q: Is this machine washable?
+- From: Anonymous
+  Q: Is this product durable?
+- From: Anonymous
+  Q: What material is it made of?
+- From: Anonymous
+  Q: What age is this suitable for?
+
+� API Test Commands:
+
+# Product Details
+curl -X GET "http://localhost:8080/api/products/680e6e7071d895e0f53b642e
+"
+
+# Reviews
+curl -X GET "http://localhost:8080/api/reviews/product/680e6e7071d895e0f
+53b642e?sort=newest&rating=all&page=1&limit=10"
+
+# Review Stats
+curl -X GET "http://localhost:8080/api/reviews/stats/680e6e7071d895e0f53
+b642e"
+
+# Questions
+curl -X GET "http://localhost:8080/api/questions/product/680e6e7071d895e
+0f53b642e?sort=newest&page=1"
+
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$ curl -X GET "http://localhost:8080/api/reviews/stats/680e6e7071d895e0f53
+b642e"
+curl: (3) URL rejected: Malformed input to a URL function
+
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$ curl -X GET "http://localhost:8080/api/reviews/stats/680e6e7071d895e0f53b642e"
+{"status":"success","data":{"average":0,"total":0,"distribution":{}}}
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$ node server/scripts/fixReviewStats.js
+Connecting to MongoDB...
+(node:13216) [DEP0040] DeprecationWarning: The `punycode` module is depr
+ecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was create
+d)
+Found 146 products
+
+Updated stats for Baby Romper (680e6e7071d895e0f53b642c):
+- Average Rating: 3.6
+- Review Count: 7
+- Distribution: { '3': 4, '4': 2, '5': 1 }
+
+Updated stats for Cotton Onesie (680e6e7071d895e0f53b642d):
+- Average Rating: 4.2
+- Review Count: 6
+- Distribution: { '3': 2, '4': 1, '5': 3 }
+
+Updated stats for Sleep Suit (680e6e7071d895e0f53b642e):
+- Average Rating: 4.2
+- Review Count: 6
+- Distribution: { '3': 1, '4': 3, '5': 2 }
+
+Updated stats for Baby Dress (680e6e7071d895e0f53b642f):
+- Average Rating: 4.9
+- Review Count: 7
+- Distribution: { '4': 1, '5': 6 }
+
+Updated stats for Infant Sweater (680e6e7071d895e0f53b6430):
+- Average Rating: 3.4
+- Review Count: 7
+- Distribution: { '3': 5, '4': 1, '5': 1 }
+
+Updated stats for Baby Pants (680e6e7071d895e0f53b6431):
+- Average Rating: 4.6
+- Review Count: 7
+- Distribution: { '3': 1, '4': 1, '5': 5 }
+
+Updated stats for Bodysuit Set (680e6e7071d895e0f53b6432):
+- Average Rating: 4.2
+- Review Count: 5
+- Distribution: { '3': 1, '4': 2, '5': 2 }
+
+Updated stats for Baby Socks Pack (680e6e7071d895e0f53b6433):
+- Average Rating: 3.8
+- Review Count: 5
+- Distribution: { '3': 2, '4': 2, '5': 1 }
+
+Updated stats for Baby Cap Set (680e6e7071d895e0f53b6434):
+- Average Rating: 3.8
+- Review Count: 6
+- Distribution: { '3': 3, '4': 1, '5': 2 }
+
+Updated stats for Fleece Jacket (680e6e7071d895e0f53b6435):
+- Average Rating: 4.1
+- Review Count: 7
+- Distribution: { '3': 2, '4': 2, '5': 3 }
+
+Updated stats for Baby Bottle (680e6e7071d895e0f53b6436):
+- Average Rating: 4.4
+- Review Count: 5
+- Distribution: { '3': 1, '4': 1, '5': 3 }
+
+Updated stats for Bottle Sterilizer (680e6e7071d895e0f53b6437):
+- Average Rating: 3.7
+- Review Count: 3
+- Distribution: { '3': 2, '5': 1 }
+
+Updated stats for Bottle Warmer (680e6e7071d895e0f53b6438):
+- Average Rating: 4.1
+- Review Count: 7
+- Distribution: { '3': 2, '4': 2, '5': 3 }
+
+Updated stats for Feeding Set (680e6e7071d895e0f53b6439):
+- Average Rating: 3.9
+- Review Count: 7
+- Distribution: { '3': 3, '4': 2, '5': 2 }
+
+Updated stats for Sippy Cup (680e6e7071d895e0f53b643a):
+- Average Rating: 4.3
+- Review Count: 3
+- Distribution: { '3': 1, '5': 2 }
+
+Updated stats for High Chair (680e6e7071d895e0f53b643b):
+- Average Rating: 4.3
+- Review Count: 3
+- Distribution: { '3': 1, '5': 2 }
+
+Updated stats for Baby Bowl Set (680e6e7071d895e0f53b643c):
+- Average Rating: 4.0
+- Review Count: 4
+- Distribution: { '3': 1, '4': 2, '5': 1 }
+
+Updated stats for Baby Spoon Set (680e6e7071d895e0f53b643d):
+- Average Rating: 3.3
+- Review Count: 6
+- Distribution: { '3': 4, '4': 2 }
+
+Updated stats for Diaper Pack (680e6e7071d895e0f53b643e):
+- Average Rating: 4.3
+- Review Count: 4
+- Distribution: { '4': 3, '5': 1 }
+
+Updated stats for Changing Mat (680e6e7071d895e0f53b643f):
+- Average Rating: 3.3
+- Review Count: 4
+- Distribution: { '3': 3, '4': 1 }
+
+Updated stats for Diaper Bag (680e6e7071d895e0f53b6440):
+- Average Rating: 4.6
+- Review Count: 7
+- Distribution: { '3': 1, '4': 1, '5': 5 }
+
+Updated stats for Wipes Pack (680e6e7071d895e0f53b6441):
+- Average Rating: 4.2
+- Review Count: 6
+- Distribution: { '3': 2, '4': 1, '5': 3 }
+
+Updated stats for Diaper Rash Cream (680e6e7071d895e0f53b6442):
+- Average Rating: 4.3
+- Review Count: 4
+- Distribution: { '3': 1, '4': 1, '5': 2 }
+
+Updated stats for Diaper Pail (680e6e7071d895e0f53b6443):
+- Average Rating: 4.3
+- Review Count: 3
+- Distribution: { '4': 2, '5': 1 }
+
+Updated stats for Baby Powder (680e6e7071d895e0f53b6444):
+- Average Rating: 5.0
+- Review Count: 3
+- Distribution: { '5': 3 }
+
+Updated stats for Changing Station (680e6e7071d895e0f53b6445):
+- Average Rating: 3.9
+- Review Count: 7
+- Distribution: { '3': 4, '5': 3 }
+
+Updated stats for Baby Shampoo (680e6e7071d895e0f53b6446):
+- Average Rating: 4.3
+- Review Count: 7
+- Distribution: { '3': 1, '4': 3, '5': 3 }
+
+Updated stats for Baby Lotion (680e6e7071d895e0f53b6447):
+- Average Rating: 4.0
+- Review Count: 7
+- Distribution: { '3': 1, '4': 5, '5': 1 }
+
+Updated stats for Bath Tub (680e6e7071d895e0f53b6448):
+- Average Rating: 4.1
+- Review Count: 7
+- Distribution: { '3': 2, '4': 2, '5': 3 }
+
+Updated stats for Wash Cloth Set (680e6e7071d895e0f53b6449):
+- Average Rating: 3.7
+- Review Count: 3
+- Distribution: { '3': 1, '4': 2 }
+
+Updated stats for Baby Oil (680e6e7071d895e0f53b644a):
+- Average Rating: 4.0
+- Review Count: 4
+- Distribution: { '4': 4 }
+
+Updated stats for Bath Toys (680e6e7071d895e0f53b644b):
+- Average Rating: 4.0
+- Review Count: 6
+- Distribution: { '3': 2, '4': 2, '5': 2 }
+
+Updated stats for Baby Soap (680e6e7071d895e0f53b644c):
+- Average Rating: 3.8
+- Review Count: 4
+- Distribution: { '3': 2, '4': 1, '5': 1 }
+
+Updated stats for Bath Support (680e6e7071d895e0f53b644d):
+- Average Rating: 4.0
+- Review Count: 3
+- Distribution: { '3': 1, '4': 1, '5': 1 }
+
+Updated stats for Baby Crib (680e6e7071d895e0f53b644e):
+- Average Rating: 4.0
+- Review Count: 3
+- Distribution: { '3': 1, '4': 1, '5': 1 }
+
+Updated stats for Changing Table (680e6e7071d895e0f53b644f):
+- Average Rating: 4.0
+- Review Count: 4
+- Distribution: { '3': 2, '5': 2 }
+
+Updated stats for Nursery Storage (680e6e7071d895e0f53b6450):
+- Average Rating: 3.0
+- Review Count: 3
+- Distribution: { '3': 3 }
+
+Updated stats for Baby Monitor (680e6e7071d895e0f53b6451):
+- Average Rating: 4.9
+- Review Count: 7
+- Distribution: { '4': 1, '5': 6 }
+
+Updated stats for Night Light (680e6e7071d895e0f53b6452):
+- Average Rating: 4.0
+- Review Count: 4
+- Distribution: { '3': 1, '4': 2, '5': 1 }
+
+Updated stats for Crib Mobile (680e6e7071d895e0f53b6453):
+- Average Rating: 3.3
+- Review Count: 7
+- Distribution: { '3': 5, '4': 2 }
+
+Updated stats for Baby Dresser (680e6e7071d895e0f53b6454):
+- Average Rating: 4.5
+- Review Count: 4
+- Distribution: { '3': 1, '5': 3 }
+
+Updated stats for Wall Decor (680e6e7071d895e0f53b6455):
+- Average Rating: 4.0
+- Review Count: 6
+- Distribution: { '3': 2, '4': 2, '5': 2 }
+
+Updated stats for Rattle Set (680e6e7071d895e0f53b6456):
+- Average Rating: 4.0
+- Review Count: 3
+- Distribution: { '4': 3 }
+
+Updated stats for Teething Toy (680e6e7071d895e0f53b6457):
+- Average Rating: 4.1
+- Review Count: 7
+- Distribution: { '3': 2, '4': 2, '5': 3 }
+
+Updated stats for Play Mat (680e6e7071d895e0f53b6458):
+- Average Rating: 3.8
+- Review Count: 5
+- Distribution: { '3': 2, '4': 2, '5': 1 }
+
+Updated stats for Soft Blocks (680e6e7071d895e0f53b6459):
+- Average Rating: 4.6
+- Review Count: 5
+- Distribution: { '4': 2, '5': 3 }
+
+Updated stats for Musical Toy (680e6e7071d895e0f53b645a):
+- Average Rating: 4.0
+- Review Count: 4
+- Distribution: { '3': 2, '5': 2 }
+
+Updated stats for Activity Gym (680e6e7071d895e0f53b645b):
+- Average Rating: 4.6
+- Review Count: 5
+- Distribution: { '4': 2, '5': 3 }
+
+Updated stats for Plush Animal (680e6e7071d895e0f53b645c):
+- Average Rating: 4.1
+- Review Count: 7
+- Distribution: { '3': 2, '4': 2, '5': 3 }
+
+Updated stats for Learning Cube (680e6e7071d895e0f53b645d):
+- Average Rating: 4.3
+- Review Count: 4
+- Distribution: { '3': 1, '4': 1, '5': 2 }
+
+Updated stats for Baby Gate (680e6e7071d895e0f53b645e):
+- Average Rating: 5.0
+- Review Count: 3
+- Distribution: { '5': 3 }
+
+Updated stats for Corner Guards (680e6e7071d895e0f53b645f):
+- Average Rating: 3.8
+- Review Count: 6
+- Distribution: { '3': 3, '4': 1, '5': 2 }
+
+Updated stats for Socket Covers (680e6e7071d895e0f53b6460):
+- Average Rating: 3.4
+- Review Count: 5
+- Distribution: { '3': 3, '4': 2 }
+
+Updated stats for Safety Locks (680e6e7071d895e0f53b6461):
+- Average Rating: 3.7
+- Review Count: 3
+- Distribution: { '3': 2, '5': 1 }
+
+Updated stats for Monitor Camera (680e6e7071d895e0f53b6462):
+- Average Rating: 4.0
+- Review Count: 3
+- Distribution: { '3': 1, '4': 1, '5': 1 }
+
+Updated stats for Anti-Slip Mat (680e6e7071d895e0f53b6463):
+- Average Rating: 4.3
+- Review Count: 4
+- Distribution: { '3': 1, '4': 1, '5': 2 }
+
+Updated stats for Door Stopper (680e6e7071d895e0f53b6464):
+- Average Rating: 4.6
+- Review Count: 7
+- Distribution: { '3': 1, '4': 1, '5': 5 }
+
+Updated stats for Cabinet Lock (680e6e7071d895e0f53b6465):
+- Average Rating: 4.2
+- Review Count: 5
+- Distribution: { '3': 1, '4': 2, '5': 2 }
+
+Updated stats for Stroller (680e6e7071d895e0f53b6466):
+- Average Rating: 4.2
+- Review Count: 6
+- Distribution: { '3': 1, '4': 3, '5': 2 }
+
+Updated stats for Car Seat (680e6e7071d895e0f53b6467):
+- Average Rating: 4.5
+- Review Count: 4
+- Distribution: { '4': 2, '5': 2 }
+
+Updated stats for Travel Cot (680e6e7071d895e0f53b6468):
+- Average Rating: 4.3
+- Review Count: 4
+- Distribution: { '3': 1, '4': 1, '5': 2 }
+
+Updated stats for Baby Carrier (680e6e7071d895e0f53b6469):
+- Average Rating: 3.5
+- Review Count: 6
+- Distribution: { '3': 4, '4': 1, '5': 1 }
+
+Updated stats for Diaper Backpack (680e6e7071d895e0f53b646a):
+- Average Rating: 4.0
+- Review Count: 7
+- Distribution: { '3': 1, '4': 5, '5': 1 }
+
+Updated stats for Travel Bottle Set (680e6e7071d895e0f53b646b):
+- Average Rating: 3.8
+- Review Count: 4
+- Distribution: { '3': 2, '4': 1, '5': 1 }
+
+Updated stats for Portable Changing Mat (680e6e7071d895e0f53b646c):
+- Average Rating: 4.3
+- Review Count: 7
+- Distribution: { '3': 2, '4': 1, '5': 4 }
+
+Updated stats for Travel High Chair (680e6e7071d895e0f53b646d):
+- Average Rating: 4.3
+- Review Count: 4
+- Distribution: { '3': 1, '4': 1, '5': 2 }
+
+Updated stats for Training Potty (680e6e7071d895e0f53b646e):
+- Average Rating: 4.0
+- Review Count: 7
+- Distribution: { '3': 2, '4': 3, '5': 2 }
+
+Updated stats for Toilet Seat (680e6e7071d895e0f53b646f):
+- Average Rating: 3.8
+- Review Count: 4
+- Distribution: { '3': 2, '4': 1, '5': 1 }
+
+Updated stats for Step Stool (680e6e7071d895e0f53b6470):
+- Average Rating: 4.0
+- Review Count: 6
+- Distribution: { '3': 2, '4': 2, '5': 2 }
+
+Updated stats for Training Pants (680e6e7071d895e0f53b6471):
+- Average Rating: 3.8
+- Review Count: 6
+- Distribution: { '3': 2, '4': 3, '5': 1 }
+
+Updated stats for Potty Book (680e6e7071d895e0f53b6472):
+- Average Rating: 3.8
+- Review Count: 4
+- Distribution: { '3': 2, '4': 1, '5': 1 }
+
+Updated stats for Reward Chart (680e6e7071d895e0f53b6473):
+- Average Rating: 4.6
+- Review Count: 7
+- Distribution: { '3': 1, '4': 1, '5': 5 }
+
+Updated stats for Travel Potty (680e6e7071d895e0f53b6474):
+- Average Rating: 4.2
+- Review Count: 6
+- Distribution: { '3': 1, '4': 3, '5': 2 }
+
+Updated stats for Potty Guard (680e6e7071d895e0f53b6475):
+- Average Rating: 4.0
+- Review Count: 4
+- Distribution: { '3': 1, '4': 2, '5': 1 }
+
+Updated stats for Party Suit (680e6e7071d895e0f53b6476):
+- Average Rating: 3.7
+- Review Count: 3
+- Distribution: { '3': 2, '5': 1 }
+
+Updated stats for Formal Set (680e6e7071d895e0f53b6477):
+- Average Rating: 4.3
+- Review Count: 3
+- Distribution: { '3': 1, '5': 2 }
+
+Updated stats for Special Occasion Dress (680e6e7071d895e0f53b6478):
+- Average Rating: 3.5
+- Review Count: 6
+- Distribution: { '3': 3, '4': 3 }
+
+Updated stats for Tuxedo Set (680e6e7071d895e0f53b6479):
+- Average Rating: 4.3
+- Review Count: 4
+- Distribution: { '4': 3, '5': 1 }
+
+Updated stats for Christening Gown (680e6e7071d895e0f53b647a):
+- Average Rating: 3.8
+- Review Count: 5
+- Distribution: { '3': 2, '4': 2, '5': 1 }
+
+Updated stats for Wedding Outfit (680e6e7071d895e0f53b647b):
+- Average Rating: 3.8
+- Review Count: 6
+- Distribution: { '3': 3, '4': 1, '5': 2 }
+
+Updated stats for Birthday Suit (680e6e7071d895e0f53b647c):
+- Average Rating: 3.5
+- Review Count: 4
+- Distribution: { '3': 2, '4': 2 }
+
+Updated stats for Holiday Outfit (680e6e7071d895e0f53b647d):
+- Average Rating: 4.3
+- Review Count: 6
+- Distribution: { '3': 1, '4': 2, '5': 3 }
+
+Updated stats for Electric Pump (680e6e7071d895e0f53b647e):
+- Average Rating: 3.8
+- Review Count: 4
+- Distribution: { '3': 2, '4': 1, '5': 1 }
+
+Updated stats for Manual Pump (680e6e7071d895e0f53b647f):
+- Average Rating: 3.9
+- Review Count: 7
+- Distribution: { '3': 3, '4': 2, '5': 2 }
+
+Updated stats for Double Pump Set (680e6e7071d895e0f53b6480):
+- Average Rating: 4.6
+- Review Count: 5
+- Distribution: { '4': 2, '5': 3 }
+
+Updated stats for Pump Parts Kit (680e6e7071d895e0f53b6481):
+- Average Rating: 4.2
+- Review Count: 6
+- Distribution: { '3': 1, '4': 3, '5': 2 }
+
+Updated stats for Pump Bottles (680e6e7071d895e0f53b6482):
+- Average Rating: 4.0
+- Review Count: 6
+- Distribution: { '3': 2, '4': 2, '5': 2 }
+
+Updated stats for Storage Bags (680e6e7071d895e0f53b6483):
+- Average Rating: 4.4
+- Review Count: 5
+- Distribution: { '3': 1, '4': 1, '5': 3 }
+
+Updated stats for Pump Cleaner (680e6e7071d895e0f53b6484):
+- Average Rating: 3.6
+- Review Count: 5
+- Distribution: { '3': 3, '4': 1, '5': 1 }
+
+Updated stats for Pump Carry Bag (680e6e7071d895e0f53b6485):
+- Average Rating: 3.9
+- Review Count: 7
+- Distribution: { '3': 3, '4': 2, '5': 2 }
+
+Updated stats for Nursing Cover (680e6e7071d895e0f53b6486):
+- Average Rating: 4.3
+- Review Count: 3
+- Distribution: { '3': 1, '5': 2 }
+
+Updated stats for Nursing Pillow (680e6e7071d895e0f53b6487):
+- Average Rating: 4.0
+- Review Count: 3
+- Distribution: { '4': 3 }
+
+Updated stats for Milk Storage Bags (680e6e7071d895e0f53b6488):
+- Average Rating: 4.2
+- Review Count: 5
+- Distribution: { '3': 1, '4': 2, '5': 2 }
+
+Updated stats for Nursing Pads (680e6e7071d895e0f53b6489):
+- Average Rating: 4.0
+- Review Count: 7
+- Distribution: { '3': 2, '4': 3, '5': 2 }
+
+Updated stats for Nipple Cream (680e6e7071d895e0f53b648a):
+- Average Rating: 5.0
+- Review Count: 3
+- Distribution: { '5': 3 }
+
+Updated stats for Feeding Timer (680e6e7071d895e0f53b648b):
+- Average Rating: 4.3
+- Review Count: 4
+- Distribution: { '3': 1, '4': 1, '5': 2 }
+
+Updated stats for Nursing Bra (680e6e7071d895e0f53b648c):
+- Average Rating: 3.3
+- Review Count: 3
+- Distribution: { '3': 2, '4': 1 }
+
+Updated stats for Lactation Supplements (680e6e7071d895e0f53b648d):
+- Average Rating: 3.5
+- Review Count: 4
+- Distribution: { '3': 2, '4': 2 }
+
+Updated stats for Baby Wrap (680e6e7071d895e0f53b648e):
+- Average Rating: 3.6
+- Review Count: 7
+- Distribution: { '3': 4, '4': 2, '5': 1 }
+
+Updated stats for Structured Carrier (680e6e7071d895e0f53b648f):
+- Average Rating: 3.7
+- Review Count: 3
+- Distribution: { '3': 2, '5': 1 }
+
+Updated stats for Crib Sheet Set (680e6e7071d895e0f53b6490):
+- Average Rating: 3.9
+- Review Count: 7
+- Distribution: { '3': 2, '4': 4, '5': 1 }
+
+Updated stats for Baby Blanket (680e6e7071d895e0f53b6491):
+- Average Rating: 4.2
+- Review Count: 5
+- Distribution: { '3': 1, '4': 2, '5': 2 }
+
+Updated stats for Sleep Sack (680e6e7071d895e0f53b6492):
+- Average Rating: 3.3
+- Review Count: 3
+- Distribution: { '3': 2, '4': 1 }
+
+Updated stats for Swaddle Set (680e6e7071d895e0f53b6493):
+- Average Rating: 4.3
+- Review Count: 3
+- Distribution: { '3': 1, '5': 2 }
+
+Updated stats for Bedding Bundle (680e6e7071d895e0f53b6494):
+- Average Rating: 3.7
+- Review Count: 6
+- Distribution: { '3': 3, '4': 2, '5': 1 }
+
+Updated stats for Mattress Protector (680e6e7071d895e0f53b6495):
+- Average Rating: 4.0
+- Review Count: 6
+- Distribution: { '3': 2, '4': 2, '5': 2 }
+
+Updated stats for Maternity Pads (680e6e7071d895e0f53b6496):
+- Average Rating: 4.0
+- Review Count: 5
+- Distribution: { '3': 2, '4': 1, '5': 2 }
+
+Updated stats for Postpartum Kit (680e6e7071d895e0f53b6497):
+- Average Rating: 3.3
+- Review Count: 4
+- Distribution: { '3': 3, '4': 1 }
+
+Updated stats for Recovery Essentials (680e6e7071d895e0f53b6498):
+- Average Rating: 3.6
+- Review Count: 5
+- Distribution: { '3': 3, '4': 1, '5': 1 }
+
+Updated stats for Care Package (680e6e7071d895e0f53b6499):
+- Average Rating: 4.5
+- Review Count: 4
+- Distribution: { '4': 2, '5': 2 }
+
+Updated stats for Perineal Spray (680e6e7071d895e0f53b649a):
+- Average Rating: 5.0
+- Review Count: 3
+- Distribution: { '5': 3 }
+
+Updated stats for Sitz Bath Set (680e6e7071d895e0f53b649b):
+- Average Rating: 3.3
+- Review Count: 3
+- Distribution: { '3': 2, '4': 1 }
+
+Updated stats for Nursing Care Kit (680e6e7071d895e0f53b649c):
+- Average Rating: 4.0
+- Review Count: 7
+- Distribution: { '4': 7 }
+
+Updated stats for Comfort Cushion (680e6e7071d895e0f53b649d):
+- Average Rating: 3.8
+- Review Count: 6
+- Distribution: { '3': 3, '4': 1, '5': 2 }
+
+Updated stats for Baby Nest (680e6e7071d895e0f53b649e):
+- Average Rating: 4.2
+- Review Count: 6
+- Distribution: { '3': 1, '4': 3, '5': 2 }
+
+Updated stats for Portable Bassinet (680e6e7071d895e0f53b649f):
+- Average Rating: 3.8
+- Review Count: 6
+- Distribution: { '3': 2, '4': 3, '5': 1 }
+
+Updated stats for Co-Sleeper (680e6e7071d895e0f53b64a0):
+- Average Rating: 4.4
+- Review Count: 5
+- Distribution: { '3': 1, '4': 1, '5': 3 }
+
+Updated stats for Travel Crib (680e6e7071d895e0f53b64a1):
+- Average Rating: 5.0
+- Review Count: 3
+- Distribution: { '5': 3 }
+
+Updated stats for Bedside Sleeper (680e6e7071d895e0f53b64a2):
+- Average Rating: 4.3
+- Review Count: 3
+- Distribution: { '4': 2, '5': 1 }
+
+Updated stats for Moses Basket (680e6e7071d895e0f53b64a3):
+- Average Rating: 4.3
+- Review Count: 7
+- Distribution: { '3': 2, '4': 1, '5': 4 }
+
+Updated stats for Rocking Bassinet (680e6e7071d895e0f53b64a4):
+- Average Rating: 4.0
+- Review Count: 7
+- Distribution: { '3': 2, '4': 3, '5': 2 }
+
+Updated stats for Foldable Crib (680e6e7071d895e0f53b64a5):
+- Average Rating: 4.4
+- Review Count: 5
+- Distribution: { '4': 3, '5': 2 }
+
+Updated stats for Nursing Pillow (680e6e7071d895e0f53b64a6):
+- Average Rating: 4.0
+- Review Count: 6
+- Distribution: { '3': 3, '5': 3 }
+
+Updated stats for Pregnancy Pillow (680e6e7071d895e0f53b64a7):
+- Average Rating: 3.8
+- Review Count: 5
+- Distribution: { '3': 2, '4': 2, '5': 1 }
+
+Updated stats for Baby Head Support (680e6e7071d895e0f53b64a8):
+- Average Rating: 4.2
+- Review Count: 6
+- Distribution: { '3': 1, '4': 3, '5': 2 }
+
+Updated stats for Travel Neck Pillow (680e6e7071d895e0f53b64a9):
+- Average Rating: 3.7
+- Review Count: 6
+- Distribution: { '3': 3, '4': 2, '5': 1 }
+
+Updated stats for Body Support Pillow (680e6e7071d895e0f53b64aa):
+- Average Rating: 4.3
+- Review Count: 3
+- Distribution: { '4': 2, '5': 1 }
+
+Updated stats for Reflux Wedge (680e6e7071d895e0f53b64ab):
+- Average Rating: 3.7
+- Review Count: 6
+- Distribution: { '3': 3, '4': 2, '5': 1 }
+
+Updated stats for Positioning Pillow (680e6e7071d895e0f53b64ac):
+- Average Rating: 3.8
+- Review Count: 5
+- Distribution: { '3': 2, '4': 2, '5': 1 }
+
+Updated stats for Memory Foam Pillow (680e6e7071d895e0f53b64ad):
+- Average Rating: 3.7
+- Review Count: 6
+- Distribution: { '3': 3, '4': 2, '5': 1 }
+
+Updated stats for Baby Swing (680e6e7071d895e0f53b64ae):
+- Average Rating: 3.6
+- Review Count: 5
+- Distribution: { '3': 3, '4': 1, '5': 1 }
+
+Updated stats for Bouncer Seat (680e6e7071d895e0f53b64af):
+- Average Rating: 4.0
+- Review Count: 4
+- Distribution: { '4': 4 }
+
+Updated stats for Rocker Chair (680e6e7071d895e0f53b64b0):
+- Average Rating: 4.4
+- Review Count: 5
+- Distribution: { '4': 3, '5': 2 }
+
+Updated stats for Electric Cradle (680e6e7071d895e0f53b64b1):
+- Average Rating: 3.7
+- Review Count: 3
+- Distribution: { '3': 2, '5': 1 }
+
+Updated stats for Portable Swing (680e6e7071d895e0f53b64b2):
+- Average Rating: 3.9
+- Review Count: 7
+- Distribution: { '3': 3, '4': 2, '5': 2 }
+
+Updated stats for Musical Rocker (680e6e7071d895e0f53b64b3):
+- Average Rating: 3.3
+- Review Count: 3
+- Distribution: { '3': 2, '4': 1 }
+
+Updated stats for Comfort Seat (680e6e7071d895e0f53b64b4):
+- Average Rating: 3.9
+- Review Count: 7
+- Distribution: { '3': 2, '4': 4, '5': 1 }
+
+Updated stats for Auto Swing (680e6e7071d895e0f53b64b5):
+- Average Rating: 3.8
+- Review Count: 4
+- Distribution: { '3': 2, '4': 1, '5': 1 }
+
+Updated stats for Baby Blanket (680e6e7071d895e0f53b64b6):
+- Average Rating: 3.8
+- Review Count: 5
+- Distribution: { '3': 2, '4': 2, '5': 1 }
+
+Updated stats for Swaddle Wrap (680e6e7071d895e0f53b64b7):
+- Average Rating: 3.8
+- Review Count: 5
+- Distribution: { '3': 2, '4': 2, '5': 1 }
+
+Updated stats for Sleep Bag (680e6e7071d895e0f53b64b8):
+- Average Rating: 4.2
+- Review Count: 5
+- Distribution: { '3': 1, '4': 2, '5': 2 }
+
+Updated stats for Thermal Suit (680e6e7071d895e0f53b64b9):
+- Average Rating: 4.0
+- Review Count: 3
+- Distribution: { '3': 1, '4': 1, '5': 1 }
+
+Updated stats for Warming Pad (680e6e7071d895e0f53b64ba):
+- Average Rating: 3.9
+- Review Count: 7
+- Distribution: { '3': 3, '4': 2, '5': 2 }
+
+Updated stats for Winter Bundle (680e6e7071d895e0f53b64bb):
+- Average Rating: 4.0
+- Review Count: 5
+- Distribution: { '3': 2, '4': 1, '5': 2 }
+
+Updated stats for Fleece Set (680e6e7071d895e0f53b64bc):
+- Average Rating: 3.7
+- Review Count: 6
+- Distribution: { '3': 3, '4': 2, '5': 1 }
+
+Updated stats for Warming Bottle (680e6e7071d895e0f53b64bd):
+- Average Rating: 4.2
+- Review Count: 5
+- Distribution: { '3': 2, '5': 3 }
+
+All review statistics have been updated!
+
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$ node server/scripts/checkProductDetails.js
+Connecting to MongoDB...
+(node:18392) [DEP0040] DeprecationWarning: The `punycode` module is depr
+ecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was create
+d)
+
+� Featured Products:
+- Sleep Suit (680e6e7071d895e0f53b642e)
+  Category: Clothing
+- Infant Sweater (680e6e7071d895e0f53b6430)
+  Category: Clothing
+- Baby Bottle (680e6e7071d895e0f53b6436)
+  Category: Feeding
+- Feeding Set (680e6e7071d895e0f53b6439)
+  Category: Feeding
+- Sippy Cup (680e6e7071d895e0f53b643a)
+  Category: Feeding
+- High Chair (680e6e7071d895e0f53b643b)
+  Category: Feeding
+- Changing Mat (680e6e7071d895e0f53b643f)
+  Category: Clothing
+- Diaper Pail (680e6e7071d895e0f53b6443)
+  Category: Clothing
+- Bath Tub (680e6e7071d895e0f53b6448)
+  Category: Clothing
+- Baby Soap (680e6e7071d895e0f53b644c)
+  Category: Clothing
+- Nursery Storage (680e6e7071d895e0f53b6450)
+  Category: Nursery
+- Play Mat (680e6e7071d895e0f53b6458)
+  Category: Toys & Entertainment
+- Learning Cube (680e6e7071d895e0f53b645d)
+  Category: Toys & Entertainment
+- Safety Locks (680e6e7071d895e0f53b6461)
+  Category: Clothing
+- Monitor Camera (680e6e7071d895e0f53b6462)
+  Category: Clothing
+- Diaper Backpack (680e6e7071d895e0f53b646a)
+  Category: Clothing
+- Travel Bottle Set (680e6e7071d895e0f53b646b)
+  Category: Clothing
+- Reward Chart (680e6e7071d895e0f53b6473)
+  Category: Clothing
+- Pump Bottles (680e6e7071d895e0f53b6482)
+  Category: Clothing
+- Nursing Pillow (680e6e7071d895e0f53b6487)
+  Category: Clothing
+- Nipple Cream (680e6e7071d895e0f53b648a)
+  Category: Clothing
+- Crib Sheet Set (680e6e7071d895e0f53b6490)
+  Category: Clothing
+- Mattress Protector (680e6e7071d895e0f53b6495)
+  Category: Clothing
+- Postpartum Kit (680e6e7071d895e0f53b6497)
+  Category: Clothing
+- Comfort Cushion (680e6e7071d895e0f53b649d)
+  Category: Clothing
+- Travel Neck Pillow (680e6e7071d895e0f53b64a9)
+  Category: Clothing
+- Auto Swing (680e6e7071d895e0f53b64b5)
+  Category: Clothing
+- Sleep Bag (680e6e7071d895e0f53b64b8)
+  Category: Clothing
+
+� Product Details:
+ID: new ObjectId("680e6e7071d895e0f53b642e")
+Name: Sleep Suit
+Category: Clothing
+Price: 18.75
+Stock: 1574
+Rating: 4.2
+Review Count: 6
+Featured: true
+
+� Recent Reviews:
+- Rating: 4, By: Anonymous
+  Comment: Great value for money, would buy again.
+- Rating: 4, By: Anonymous
+  Comment: Really pleased with the quality.
+- Rating: 5, By: Anonymous
+  Comment: Absolutely love this! Perfect for our baby.
+- Rating: 5, By: Anonymous
+  Comment: Outstanding quality, highly recommend!
+- Rating: 3, By: Anonymous
+  Comment: Does the job but could be better.
+
+❓ Recent Questions:
+- From: Anonymous
+  Q: Is this machine washable?
+- From: Anonymous
+  Q: Is this product durable?
+- From: Anonymous
+  Q: What material is it made of?
+- From: Anonymous
+  Q: What age is this suitable for?
+
+� API Test Commands:
+
+# Product Details
+curl -X GET "http://localhost:8080/api/products/680e6e7071d895e0f53b642e
+"
+
+# Reviews
+curl -X GET "http://localhost:8080/api/reviews/product/680e6e7071d895e0f
+53b642e?sort=newest&rating=all&page=1&limit=10"
+
+# Review Stats
+curl -X GET "http://localhost:8080/api/reviews/stats/680e6e7071d895e0f53
+b642e"
+
+# Questions
+curl -X GET "http://localhost:8080/api/questions/product/680e6e7071d895e
+0f53b642e?sort=newest&page=1"
+
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$ curl -X GET "http://localhost:8080/api/reviews/stats/680e6e7071d895e0f53b642e"
+{"status":"success","data":{"average":0,"total":0,"distribution":{}}}
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$ node server/scripts/checkReviewStats.js
+Connecting to MongoDB...
+(node:18468) [DEP0040] DeprecationWarning: The `punycode` module is depr
+ecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was create
+d)
+
+Product Stats from Product Collection:
+- Rating: 4.2
+- Review Count: 6
+- Distribution: {}
+
+Direct Review Count: 6
+Calculated from Reviews:
+- Average Rating: 4.2
+- Distribution: { '3': 1, '4': 3, '5': 2 }
+
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$ curl -X GET "http://localhost:8080/api/products/680e6e7071d895e0f53b642e"
+{"status":"error","message":"Product not found"}
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$ curl -X GET "http://localhost:8080/api/reviews?product=680e6e7071d895e0f53b642e&sort=-createdAt&limit=10"
+{"message":"Please login first"}
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$ curl -X GET "http://localhost:8080/api/reviews/stats/680e6e7071d895e0f53b642e" -H "Content-Type: application/json"
+{"status":"success","data":{"average":0,"total":0,"distribution":{}}}
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$ curl -X GET "http://localhost:8080/api/reviews?product=680e6e7071d895e0f53b642e&rating=5"
+{"message":"Please login first"}
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran
+$
