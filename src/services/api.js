@@ -60,11 +60,17 @@ export const productApi = {
 
   getRelatedProducts: async (productId) => {
     try {
-      const response = await api.get(`/products/related/${productId}`);
+      // Update the endpoint to match the working curl command
+      const response = await api.get(`/products/${productId}/related`, {
+        headers: {
+          'Origin': window.location.origin,
+          'Content-Type': 'application/json'
+        }
+      });
       return response.data;
     } catch (error) {
       console.error('API Error - getRelatedProducts:', error);
-      throw error?.response?.data || error;
+      throw error;
     }
   },
 

@@ -20,15 +20,14 @@ const RelatedProducts = ({ currentProductId }) => {
       
       try {
         setLoading(true);
+        setError(null);
         const response = await productApi.getRelatedProducts(currentProductId);
         if (response?.status === 'success') {
           setProducts(response.data || []);
-        } else {
-          throw new Error('Failed to fetch related products');
         }
       } catch (error) {
         console.error('Failed to fetch related products:', error);
-        setError(error.response?.data?.message || error.message);
+        setError(error?.response?.data?.message || 'Failed to load related products');
       } finally {
         setLoading(false);
       }

@@ -6,7 +6,7 @@ const config = {
     siteURL: 'http://localhost:3000'
   },
   production: {
-    baseURL: 'https://qaran.onrender.com/api',
+    baseURL: 'https://qaran.onrender.com',
     siteURL: 'https://baby-shop-xi.vercel.app'
   }
 };
