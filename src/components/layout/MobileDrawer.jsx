@@ -73,7 +73,7 @@ const MobileDrawer = ({ open, onClose }) => {
         alignItems: 'center' 
       }}>
         <Box component={motion.div} whileHover={{ scale: 1.05 }}>
-          <img src="/qaran.png" alt="Qaran Baby Shop" height="60" />
+          <img src="/Qaran.png" alt="Qaran Baby Shop" height="60" />
         </Box>
         <IconButton onClick={onClose} sx={{ 
           '&:hover': { 

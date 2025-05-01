@@ -154,7 +154,7 @@ const Navbar = () => {
                 style={{ cursor: 'pointer' }}
               >
                 <img 
-                  src="/qaran.png" 
+                  src="/Qaran.png" 
                   alt="Qaran Baby Shop" 
                   height="80" 
                   style={{ transition: 'height 0.3s ease' }}
