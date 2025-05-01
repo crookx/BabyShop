@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import MuiConfig from './theme/MuiConfig';
 import MainLayout from './layouts/MainLayout';
 import NewAuthPage from './pages/NewAuthPage';
 import LoadingScreen from './components/common/LoadingScreen';
@@ -14,7 +15,7 @@ const Wishlist = React.lazy(() => import('./pages/Wishlist'));
 
 function App() {
   return (
-    <>
+    <MuiConfig>
       <ToastContainer />
       <Routes>
         <Route path="/auth" element={<NewAuthPage />} />
@@ -46,7 +47,7 @@ function App() {
           } />
         </Route>
       </Routes>
-    </>
+    </MuiConfig>
   );
 }
 

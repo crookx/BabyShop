@@ -2,11 +2,10 @@ import React from 'react';
 import { ThemeProvider as MuiThemeProvider, CssBaseline } from '@mui/material';
 import { getTheme } from './theme';
 import { useLocalStorage } from '../hooks/useLocalStorage';
-import { createCache, StyleSheetManager } from 'styled-components';
-import rtlPlugin from 'stylis-plugin-rtl';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 import { prefixer } from 'stylis';
+import rtlPlugin from 'stylis-plugin-rtl';
 
 const ThemeProvider = ({ children }) => {
   const [mode, setMode] = useLocalStorage('theme-mode', 'light');
@@ -24,17 +23,9 @@ const ThemeProvider = ({ children }) => {
     [direction]
   );
 
-  const toggleTheme = () => {
-    setMode(prevMode => prevMode === 'light' ? 'dark' : 'light');
-  };
-
-  const toggleDirection = () => {
-    setDirection(prevDir => prevDir === 'ltr' ? 'rtl' : 'ltr');
-  };
-
   return (
     <CacheProvider value={cache}>
-      <MuiThemeProvider theme={{ ...theme, direction }}>
+      <MuiThemeProvider theme={theme}>
         <CssBaseline />
         {children}
       </MuiThemeProvider>

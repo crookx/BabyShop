@@ -1,36 +1,38 @@
 import axios from 'axios';
+import { API_CONFIG } from './api.config';
 
-const BACKEND_URL = 'http://localhost:8080/api';  // Hardcode for now to ensure consistency
-const TIMEOUT = 5000;
+const MAX_RETRIES = 3;
 const RETRY_DELAY = 1000;
-const MAX_RETRIES = 2;
-
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 const instance = axios.create({
-  baseURL: BACKEND_URL,
-  timeout: TIMEOUT,
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  },
+  baseURL: API_CONFIG.baseURL,
+  timeout: 10000,
+  headers: API_CONFIG.headers,
   withCredentials: true
 });
 
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 const retryRequest = async (error, retryCount = 0) => {
-  const config = error.config;
-  
-  if (!config || retryCount >= MAX_RETRIES) {
+  if (retryCount >= MAX_RETRIES || !error.config) {
     return Promise.reject(error);
   }
 
-  await sleep(RETRY_DELAY);
-  return instance(config);
+  await sleep(RETRY_DELAY * Math.pow(2, retryCount));
+  console.log(`Retrying request (${retryCount + 1}/${MAX_RETRIES})...`);
+  
+  return instance({
+    ...error.config,
+    headers: {
+      ...error.config.headers,
+      'Cache-Control': 'no-cache'
+    }
+  });
 };
 
 instance.interceptors.request.use(
   config => {
-    console.log(`Making request to: ${config.baseURL}${config.url}`);
+    console.log(`[${config.method?.toUpperCase()}] ${config.baseURL}${config.url}`);
     return config;
   },
   error => Promise.reject(error)
@@ -40,29 +42,19 @@ instance.interceptors.response.use(
   response => response,
   async error => {
     if (error.code === 'ERR_NETWORK') {
-      console.warn('Network error, attempting retry...');
       return retryRequest(error);
     }
-
-    if (error.code === 'ECONNABORTED') {
-      return Promise.reject(new Error('Request timed out. Please check your connection.'));
+    
+    if (error.response?.status === 401) {
+      console.warn('Authentication required');
+      // Handle auth error (e.g., redirect to login)
     }
 
-    // Handle server errors
-    if (error.response?.status >= 500) {
-      console.error('Server error:', error);
-      return Promise.reject(new Error('Server error. Please try again later.'));
+    if (error.response?.status === 403) {
+      console.error('CORS or Authorization error:', error.response.data);
     }
 
-    // Handle 404 errors
-    if (error.response?.status === 404) {
-      return Promise.reject(new Error('Product not found'));
-    }
-
-    // Handle other errors
-    const errorMessage = error.response?.data?.message || error.message;
-    console.error('API Error:', errorMessage);
-    return Promise.reject(new Error(errorMessage));
+    return Promise.reject(error?.response?.data || error);
   }
 );
 

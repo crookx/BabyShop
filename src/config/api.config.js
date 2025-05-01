@@ -6,8 +6,8 @@ const config = {
     siteURL: 'http://localhost:3000'
   },
   production: {
-    baseURL: process.env.REACT_APP_API_URL || 'http://localhost:8080/api',
-    siteURL: process.env.REACT_APP_SITE_URL || 'https://qaranbaby.com'
+    baseURL: 'https://qaran.onrender.com/api',
+    siteURL: 'https://baby-shop-xi.vercel.app'
   }
 };
 
@@ -16,7 +16,8 @@ export const API_CONFIG = {
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
-  }
+  },
+  withCredentials: true
 };
 
 export const API_ENDPOINTS = {

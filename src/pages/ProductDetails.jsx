@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { 
-  Container, Grid, Typography, Box, Button, Breadcrumbs, Link, 
+  Container, Grid, Typography, Box, Breadcrumbs, Link, 
   CircularProgress, Stack, Chip, Alert, ButtonGroup, 
-  TextField, Tooltip, IconButton
+  TextField, Tooltip, IconButton, Button
 } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
 import { 
   ShoppingCart, RemoveShoppingCart, Favorite, FavoriteBorder, 
   Add, Remove, LocalShipping, CheckCircle, Timer
@@ -295,13 +294,12 @@ const ProductDetails = () => {
 
             {/* Action Buttons */}
             <Stack direction="row" spacing={2} sx={{ mb: 4 }}>
-              <LoadingButton
-                loading={cartLoading}
+              <Button
                 variant="contained"
-                size="large"
-                startIcon={isInCart ? <RemoveShoppingCart /> : <ShoppingCart />}
+                fullWidth
+                startIcon={cartLoading ? <CircularProgress size={20} /> : isInCart ? <RemoveShoppingCart /> : <ShoppingCart />}
                 onClick={handleCartToggle}
-                disabled={!product?.inStock}
+                disabled={cartLoading}
                 sx={{
                   flex: 1,
                   bgcolor: isInCart ? 'grey.200' : 'primary.main',
@@ -311,15 +309,14 @@ const ProductDetails = () => {
                   }
                 }}
               >
-                {isInCart ? 'Remove from Cart' : 'Add to Cart'}
-              </LoadingButton>
+                {cartLoading ? 'Processing...' : (isInCart ? 'Remove from Cart' : 'Add to Cart')}
+              </Button>
 
-              <LoadingButton
-                loading={wishlistLoading}
+              <Button
                 variant="outlined"
-                size="large"
                 startIcon={isInWishlist ? <Favorite /> : <FavoriteBorder />}
                 onClick={handleWishlistToggle}
+                disabled={wishlistLoading}
                 sx={{
                   minWidth: 56,
                   color: isInWishlist ? 'error.main' : 'inherit',
@@ -329,8 +326,12 @@ const ProductDetails = () => {
                   }
                 }}
               >
-                {isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'}
-              </LoadingButton>
+                {wishlistLoading ? (
+                  <CircularProgress size={24} color="inherit" />
+                ) : (
+                  isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'
+                )}
+              </Button>
             </Stack>
 
             {/* Shipping Info */}

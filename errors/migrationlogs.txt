@@ -1,0 +1,2291 @@
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran (master)
+$ node server/scripts/migrateToAtlas.js
+Connected to local database
+Connected to Atlas database
+(node:24072) [DEP0040] DeprecationWarning: The `punycode` module is deprec
+ated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Found 146 products, 735 reviews, 716 questions locally
+Migration failed: Error: Product validation failed: basePrice: Path `baseP
+rice` is required., variants.0.price: Path `price` is required., variants.
+0.size: Path `size` is required., variants.0.color: Path `color` is requir
+ed., variants.1.price: Path `price` is required., variants.1.size: Path `s
+ize` is required., variants.1.color: Path `color` is required., variants.2
+.price: Path `price` is required., variants.2.size: Path `size` is require
+d., variants.2.color: Path `color` is required., variants.3.price: Path `p
+rice` is required., variants.3.size: Path `size` is required., variants.3.
+color: Path `color` is required., variants.4.price: Path `price` is requir
+ed., variants.4.size: Path `size` is required., variants.4.color: Path `co
+lor` is required., variants.5.price: Path `price` is required., variants.5
+.size: Path `size` is required., variants.5.color: Path `color` is require
+d., variants.6.price: Path `price` is required., variants.6.size: Path `si
+ze` is required., variants.6.color: Path `color` is required., variants.7.
+price: Path `price` is required., variants.7.size: Path `size` is required
+., variants.7.color: Path `color` is required., variants.8.price: Path `pr
+ice` is required., variants.8.size: Path `size` is required., variants.8.c
+olor: Path `color` is required., variants.9.price: Path `price` is require
+d., variants.9.size: Path `size` is required., variants.9.color: Path `col
+or` is required., variants.10.price: Path `price` is required., variants.1
+0.size: Path `size` is required., variants.10.color: Path `color` is requi
+red., variants.11.price: Path `price` is required., variants.11.size: Path
+ `size` is required., variants.11.color: Path `color` is required., varian
+ts.12.price: Path `price` is required., variants.12.size: Path `size` is r
+equired., variants.12.color: Path `color` is required., variants.13.price:
+ Path `price` is required., variants.13.size: Path `size` is required., va
+riants.13.color: Path `color` is required., variants.14.price: Path `price
+` is required., variants.14.size: Path `size` is required., variants.14.co
+lor: Path `color` is required., variants.15.price: Path `price` is require
+d., variants.15.size: Path `size` is required., variants.15.color: Path `c
+olor` is required., variants.16.price: Path `price` is required., variants
+.16.size: Path `size` is required., variants.16.color: Path `color` is req
+uired., variants.17.price: Path `price` is required., variants.17.size: Pa
+th `size` is required., variants.17.color: Path `color` is required., vari
+ants.18.price: Path `price` is required., variants.18.size: Path `size` is
+ required., variants.18.color: Path `color` is required., variants.19.pric
+e: Path `price` is required., variants.19.size: Path `size` is required.,
+variants.19.color: Path `color` is required., variants.20.price: Path `pri
+ce` is required., variants.20.size: Path `size` is required., variants.20.
+color: Path `color` is required., variants.21.price: Path `price` is requi
+red., variants.21.size: Path `size` is required., variants.21.color: Path
+`color` is required., variants.22.price: Path `price` is required., varian
+ts.22.size: Path `size` is required., variants.22.color: Path `color` is r
+equired., variants.23.price: Path `price` is required., variants.23.size:
+Path `size` is required., variants.23.color: Path `color` is required., va
+riants.24.price: Path `price` is required., variants.24.size: Path `size`
+is required., variants.24.color: Path `color` is required., variants.25.pr
+ice: Path `price` is required., variants.25.size: Path `size` is required.
+, variants.25.color: Path `color` is required., variants.26.price: Path `p
+rice` is required., variants.26.size: Path `size` is required., variants.2
+6.color: Path `color` is required., variants.27.price: Path `price` is req
+uired., variants.27.size: Path `size` is required., variants.27.color: Pat
+h `color` is required., variants.28.price: Path `price` is required., vari
+ants.28.size: Path `size` is required., variants.28.color: Path `color` is
+ required., variants.29.price: Path `price` is required., variants.29.size
+: Path `size` is required., variants.29.color: Path `color` is required.,
+variants.30.price: Path `price` is required., variants.30.size: Path `size
+` is required., variants.30.color: Path `color` is required., variants.31.
+price: Path `price` is required., variants.31.size: Path `size` is require
+d., variants.31.color: Path `color` is required., variants.32.price: Path
+`price` is required., variants.32.size: Path `size` is required., variants
+.32.color: Path `color` is required., variants.33.price: Path `price` is r
+equired., variants.33.size: Path `size` is required., variants.33.color: P
+ath `color` is required., variants.34.price: Path `price` is required., va
+riants.34.size: Path `size` is required., variants.34.color: Path `color`
+is required., variants.35.price: Path `price` is required., variants.35.si
+ze: Path `size` is required., variants.35.color: Path `color` is required.
+, variants.36.price: Path `price` is required., variants.36.size: Path `si
+ze` is required., variants.36.color: Path `color` is required., variants.3
+7.price: Path `price` is required., variants.37.size: Path `size` is requi
+red., variants.37.color: Path `color` is required., variants.38.price: Pat
+h `price` is required., variants.38.size: Path `size` is required., varian
+ts.38.color: Path `color` is required., variants.39.price: Path `price` is
+ required., variants.39.size: Path `size` is required., variants.39.color:
+ Path `color` is required., variants.40.price: Path `price` is required.,
+variants.40.size: Path `size` is required., variants.40.color: Path `color
+` is required., variants.41.price: Path `price` is required., variants.41.
+size: Path `size` is required., variants.41.color: Path `color` is require
+d., variants.42.price: Path `price` is required., variants.42.size: Path `
+size` is required., variants.42.color: Path `color` is required., variants
+.43.price: Path `price` is required., variants.43.size: Path `size` is req
+uired., variants.43.color: Path `color` is required., variants.44.price: P
+ath `price` is required., variants.44.size: Path `size` is required., vari
+ants.44.color: Path `color` is required., variants.45.price: Path `price`
+is required., variants.45.size: Path `size` is required., variants.45.colo
+r: Path `color` is required., variants.46.price: Path `price` is required.
+, variants.46.size: Path `size` is required., variants.46.color: Path `col
+or` is required., variants.47.price: Path `price` is required., variants.4
+7.size: Path `size` is required., variants.47.color: Path `color` is requi
+red.
+    at ValidationError.inspect (C:\Qaran\server\node_modules\mongoose\lib\
+error\validation.js:50:26)
+    at formatValue (node:internal/util/inspect:809:19)
+    at inspect (node:internal/util/inspect:368:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2307:40)
+    at formatWithOptions (node:internal/util/inspect:2169:10)
+    at console.value (node:internal/console/constructor:340:14)
+    at console.warn (node:internal/console/constructor:381:61)
+    at migrateData (file:///C:/Qaran/server/scripts/migrateToAtlas.js:55:1
+3)
+    at process.processTicksAndRejections (node:internal/process/task_queue
+s:105:5) {
+  errors: {
+    basePrice: ValidatorError: Path `basePrice` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'basePrice',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.0.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.0.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.0.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.1.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.1.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.1.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.2.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.2.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.2.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.3.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.3.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.3.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.4.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.4.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.4.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.5.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.5.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.5.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.6.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.6.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.6.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.7.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.7.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.7.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.8.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.8.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.8.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.9.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.9.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.9.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.10.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.10.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.10.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.11.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.11.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.11.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.12.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.12.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.12.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.13.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.13.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.13.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.14.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.14.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.14.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.15.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.15.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.15.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.16.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.16.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.16.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.17.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.17.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.17.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.18.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.18.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.18.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.19.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.19.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.19.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.20.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.20.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.20.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.21.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.21.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.21.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.22.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.22.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.22.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.23.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.23.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.23.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.24.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.24.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.24.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.25.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.25.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.25.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.26.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.26.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.26.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.27.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.27.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.27.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.28.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.28.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.28.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.29.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.29.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.29.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.30.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.30.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.30.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.31.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.31.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.31.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.32.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.32.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.32.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.33.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.33.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.33.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.34.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.34.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.34.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.35.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.35.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.35.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.36.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.36.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.36.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.37.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.37.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.37.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.38.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.38.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.38.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.39.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.39.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.39.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.40.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.40.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.40.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.41.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.41.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.41.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.42.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.42.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.42.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.43.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.43.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.43.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.44.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.44.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.44.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.45.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.45.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.45.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.46.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.46.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.46.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.47.price': ValidatorError: Path `price` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'price',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.47.size': ValidatorError: Path `size` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'size',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    'variants.47.color': ValidatorError: Path `color` is required.
+        at validate (C:\Qaran\server\node_modules\mongoose\lib\schematype.
+js:1365:13)
+        at SchemaType.doValidate (C:\Qaran\server\node_modules\mongoose\li
+b\schematype.js:1349:7)
+        at C:\Qaran\server\node_modules\mongoose\lib\document.js:3004:18
+        at process.processTicksAndRejections (node:internal/process/task_q
+ueues:85:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'color',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'Product validation failed'
+}
+
+Administrator@DESKTOP-I0292P0 MINGW64 /c/Qaran (master)
