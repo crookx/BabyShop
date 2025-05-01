@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://qaran-baby-shop-api.onrender.com/api'
+  ? 'https://qaran.onrender.com/api'
   : 'http://localhost:8080/api';
 
 const api = axios.create({
@@ -60,17 +60,11 @@ export const productApi = {
 
   getRelatedProducts: async (productId) => {
     try {
-      // Update the endpoint to match the working curl command
-      const response = await api.get(`/products/${productId}/related`, {
-        headers: {
-          'Origin': window.location.origin,
-          'Content-Type': 'application/json'
-        }
-      });
+      const response = await api.get(`/products/${productId}/related`);
       return response.data;
     } catch (error) {
       console.error('API Error - getRelatedProducts:', error);
-      throw error;
+      throw error?.response?.data || error;
     }
   },
 
